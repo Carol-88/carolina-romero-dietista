@@ -425,8 +425,6 @@ a {
   line-height: 1.5;
   color: var(--charcoal);
   background: #ffffff;
-  border: 2px solid var(--rose-light);
-  box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
 }
 
 .service-price {
