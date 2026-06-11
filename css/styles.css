@@ -417,13 +417,16 @@ a {
 
 .services-promo {
   margin-top: 1.25rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 9999px;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.75rem;
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--navy);
-  background: color-mix(in srgb, var(--mint) 55%, white);
+  line-height: 1.5;
+  color: var(--charcoal);
+  background: #ffffff;
+  border: 2px solid var(--rose-light);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 20%);
 }
 
 .service-price {
