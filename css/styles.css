@@ -415,6 +415,32 @@ a {
   color: color-mix(in srgb, white 70%, transparent);
 }
 
+.services-promo {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: color-mix(in srgb, var(--mint) 55%, white);
+}
+
+.service-price {
+  margin-top: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--rose-light);
+}
+
+.service-price-quote {
+  font-size: 1.125rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
 .services-grid {
   margin-top: 3.5rem;
   display: grid;
@@ -481,7 +507,7 @@ a {
   color: white;
 }
 
-.service-card > p {
+.service-card > p:not(.service-price) {
   margin-top: 1rem;
   font-size: 0.875rem;
   line-height: 1.7;
