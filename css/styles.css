@@ -434,6 +434,13 @@ a {
   color: var(--rose-light);
 }
 
+.service-price span {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: color-mix(in srgb, white 65%, transparent);
+}
+
 .service-price-quote {
   font-size: 1.125rem;
   font-family: var(--font-sans);
