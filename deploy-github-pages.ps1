@@ -14,7 +14,7 @@ if (-not (Test-Path ".git")) {
     & $git branch -M main
 }
 
-& $git add index.html css js images legal .nojekyll favicon.ico
+& $git add index.html css js images legal .nojekyll favicon.ico robots.txt sitemap.xml
 & $git add -u 2>$null
 
 $status = & $git status --porcelain
