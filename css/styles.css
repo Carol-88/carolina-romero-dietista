@@ -410,12 +410,12 @@ a {
   color: white;
 }
 
-.section-header p {
+.section-header p:not(.services-promo) {
   margin-top: 1rem;
   color: color-mix(in srgb, white 70%, transparent);
 }
 
-.services-promo {
+.section-header .services-promo {
   margin-top: 1.25rem;
   padding: 0.875rem 1.5rem;
   border-radius: 0.75rem;
