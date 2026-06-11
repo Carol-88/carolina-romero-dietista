@@ -1,8 +1,8 @@
 const CONFIG = {
   name: "Carolina Romero",
-  email: "hola@carolinaromero.com",
-  phone: "+34 600 000 000",
-  whatsapp: "34600000000",
+  email: "asesoria.carolinaromero@protonmail.com",
+  phone: "+34 695 504 249",
+  whatsapp: "34695504249",
 };
 
 const SERVICE_LABELS = {
