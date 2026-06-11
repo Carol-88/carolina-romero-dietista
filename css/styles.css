@@ -768,6 +768,11 @@ a {
   font-weight: 700;
 }
 
+.contact-link-icon.facebook {
+  background: color-mix(in srgb, #1877f2 15%, transparent);
+  color: #1877f2;
+}
+
 .contact-link-icon.portfolio {
   background: color-mix(in srgb, var(--rose-light) 25%, transparent);
   color: var(--rose);
