@@ -35,7 +35,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=9" />
+    <link rel="stylesheet" href="css/styles.css?v=10" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -74,8 +74,8 @@
   <body>
     <a class="skip-link" href="#main-content">Saltar al contenido</a>
 
-    <header class="header">
-      <div class="container header-inner">
+    <header class="site-header">
+      <div class="container site-header-row">
         <a href="#" class="brand-link">
           <img src="images/logo.png" alt="" width="44" height="44" />
           <span class="brand-name">CAROLINA ROMERO</span>
@@ -84,6 +84,7 @@
         <nav id="main-nav" class="nav" aria-label="Principal">
           <a href="#planes">Planes</a>
           <a href="#reserva">Reservar</a>
+          <a href="#bioevolva">BioEvolva</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#opiniones">Opiniones</a>
           <a href="#faq">FAQ</a>
@@ -133,7 +134,7 @@
             <ul class="hero-badges" aria-label="Beneficios principales">
               <li>Menús semanales personalizados</li>
               <li>Seguimiento y adaptación</li>
-              <li>Grupo WhatsApp (plan trimestral)</li>
+              <li>Grupo WhatsApp opcional (trimestral)</li>
             </ul>
 
             <div class="hero-actions">
@@ -191,6 +192,10 @@
             <p class="services-promo">
               Consulta informativa gratuita: 30 min · Sesiones de pago: 1 hora
             </p>
+            <p class="services-discount">
+              Usuarias de <a href="https://bioevolva.es" target="_blank" rel="noopener noreferrer">BioEvolva</a>:
+              <strong>10 % de descuento</strong> en todos los planes (indica tu email de cuenta al reservar).
+            </p>
           </div>
 
           <div class="pricing-grid">
@@ -198,6 +203,7 @@
               <p class="pricing-label">Puntual</p>
               <h3>Cita única</h3>
               <p class="pricing-amount">49 €</p>
+              <p class="pricing-amount-alt">BioEvolva: <strong>44 €</strong></p>
               <p class="pricing-period">1 sesión · 1 hora</p>
               <ul class="pricing-features">
                 <li>Videollamada y anamnesis alimentaria</li>
@@ -213,6 +219,7 @@
               <p class="pricing-label pricing-label-featured">Recomendado</p>
               <h3>Plan trimestral</h3>
               <p class="pricing-amount">179 €</p>
+              <p class="pricing-amount-alt">BioEvolva: <strong>161 €</strong></p>
               <p class="pricing-period">12 semanas de acompañamiento</p>
               <ul class="pricing-features">
                 <li>Consulta inicial de 1 hora</li>
@@ -220,7 +227,7 @@
                 <li>5 revisiones quincenales (~30 min)</li>
                 <li>Ajustes según tu progreso</li>
                 <li>Soporte WhatsApp en horario laboral</li>
-                <li><strong>Grupo WhatsApp de apoyo</strong> (máx. 10, mismo objetivo)</li>
+                <li><strong>Grupo WhatsApp de apoyo opcional</strong> (máx. 10, mismo objetivo)</li>
               </ul>
               <span class="pricing-badge">Próximamente</span>
             </article>
@@ -228,6 +235,7 @@
 
           <p class="pricing-extra">
             Seguimiento suelto (solo clientas previas): <strong>42 €</strong> / sesión de 1 h
+            · BioEvolva: <strong>38 €</strong>
           </p>
 
           <div class="comparison-wrap">
@@ -259,10 +267,50 @@
                 <tr>
                   <th scope="row">Grupo WhatsApp</th>
                   <td>No</td>
-                  <td>Sí (máx. 10)</td>
+                  <td>Opcional (máx. 10)</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="bioevolva" class="bioevolva">
+        <div class="container bioevolva-grid">
+          <div class="bioevolva-content">
+            <p class="eyebrow">App complementaria</p>
+            <h2>BioEvolva y asesoría personalizada</h2>
+            <p>
+              Soy también la creadora de <strong>BioEvolva</strong>, una aplicación web para
+              generar menús semanales con base mediterránea, seguir tu progreso y aprender
+              hábitos alimentarios saludables.
+            </p>
+            <p>
+              La app y la asesoría se complementan: puedes usar BioEvolva por tu cuenta o
+              combinarla con un plan personalizado conmigo. Si ya tienes cuenta activa en
+              la app, tienes <strong>10 % de descuento</strong> en todos los precios de
+              asesoría de esta web.
+            </p>
+            <ul class="bioevolva-perks">
+              <li>Menús automáticos según tu perfil y objetivos</li>
+              <li>Registro de progreso y educación nutricional</li>
+              <li>Descuento en asesoría: cita única 44 € · trimestral 161 € · seguimiento 38 €</li>
+            </ul>
+            <div class="bioevolva-actions">
+              <a
+                href="https://bioevolva.es"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conocer BioEvolva
+              </a>
+              <a href="#planes" class="btn btn-outline">Ver planes con descuento</a>
+            </div>
+            <p class="bioevolva-note">
+              Al reservar o contactar, indica el email con el que te registraste en BioEvolva
+              para aplicar el descuento.
+            </p>
           </div>
         </div>
       </section>
@@ -273,8 +321,10 @@
             <p class="eyebrow">Comunidad</p>
             <h2>Grupo de apoyo WhatsApp</h2>
             <p>
-              Incluido en el <strong>plan trimestral</strong>. Grupos de máximo
-              <strong>10 personas</strong> con objetivos y condiciones similares.
+              Disponible para clientas del <strong>plan trimestral</strong>, de forma
+              <strong>totalmente voluntaria</strong>. No estás obligada a unirte por contratar
+              el plan. Grupos de máximo <strong>10 personas</strong> con objetivos y
+              condiciones similares.
             </p>
             <ul class="grupo-wa-list">
               <li>Compartir recetas e ideas entre compañeras</li>
@@ -283,7 +333,8 @@
               <li>Agrupación según tu cuestionario previo</li>
             </ul>
             <p class="grupo-wa-note">
-              No sustituye la consulta individual ni el seguimiento médico.
+              La participación es opcional. Si prefieres seguimiento solo individual, también
+              es válido. No sustituye la consulta individual ni el seguimiento médico.
               Normas de respeto y privacidad en cada grupo.
             </p>
           </div>
@@ -325,8 +376,8 @@
               <span class="step-num" aria-hidden="true">4</span>
               <h3>Seguimiento y grupo</h3>
               <p>
-                Revisiones, ajustes según progreso y, en el trimestral, acceso
-                al grupo WhatsApp de apoyo.
+                Revisiones, ajustes según progreso y, si lo deseas en el trimestral,
+                acceso voluntario al grupo WhatsApp de apoyo.
               </p>
             </li>
           </ol>
@@ -439,7 +490,7 @@
             </div>
             <div class="credential-card">
               <h3>Comunidad</h3>
-              <p>Grupos WhatsApp pequeños para apoyarte entre compañeras.</p>
+              <p>Grupo WhatsApp opcional y pequeño para apoyarte entre compañeras.</p>
             </div>
           </div>
         </div>
@@ -483,7 +534,7 @@
               <p>
                 Me permite conocer tus objetivos, hábitos y cribar situaciones que
                 requieren atención médica. Así llegamos a la consulta preparadas
-                y puedo agruparte en un grupo WhatsApp adecuado si contratas el trimestral.
+                y puedo valorar si un grupo WhatsApp voluntario encaja contigo si contratas el trimestral.
               </p>
             </details>
             <details class="faq-item">
@@ -496,9 +547,20 @@
             <details class="faq-item">
               <summary>¿Cómo funcionan los grupos de WhatsApp?</summary>
               <p>
-                Solo para clientas del plan trimestral. Máximo 10 personas con
+                Solo para clientas del plan trimestral y de forma <strong>voluntaria</strong>:
+                no estás obligada a unirte por contratar el plan. Máximo 10 personas con
                 objetivo similar. Compartís recetas, os apoyáis y yo corrijo platos
                 y comparto información nutricional. No es un chat médico 24/7.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Tengo descuento si uso BioEvolva?</summary>
+              <p>
+                Sí. Las personas con cuenta activa en
+                <a href="https://bioevolva.es" target="_blank" rel="noopener noreferrer">BioEvolva</a>
+                tienen un <strong>10 % de descuento</strong> en todos los planes de asesoría
+                (44 € cita única, 161 € trimestral, 38 € seguimiento). Indica tu email de
+                registro al reservar o escribirme.
               </p>
             </details>
             <details class="faq-item">

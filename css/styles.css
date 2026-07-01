@@ -118,13 +118,23 @@ a {
 }
 
 /* Header */
+.site-header,
 .header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
+  width: 100%;
   border-bottom: 1px solid color-mix(in srgb, var(--charcoal) 5%, transparent);
-  background: color-mix(in srgb, var(--cream) 95%, transparent);
-  backdrop-filter: blur(12px);
+  background: var(--cream);
+}
+
+.site-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 0;
+  min-width: 0;
 }
 
 .header-inner {
@@ -204,16 +214,28 @@ a {
     display: none !important;
   }
 
+  .site-header-row {
+    position: relative;
+    z-index: 102;
+  }
+
   .nav {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100vw;
+    height: 100dvh;
+    min-height: 100vh;
     z-index: 101;
     display: none;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
-    padding: 5.5rem 1.25rem 2rem;
+    padding: 5.5rem 1.5rem 2rem;
     background: var(--cream);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -256,7 +278,7 @@ a {
     display: inline-flex;
   }
 
-  .header-inner {
+  .site-header-row {
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -277,6 +299,11 @@ a {
     background: transparent;
     flex-direction: row;
     align-items: center;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    max-width: none;
+    overflow: visible;
   }
 
   .header-controls {
@@ -317,7 +344,7 @@ a {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .nav a:not(.btn) {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
   }
 
   .header-cta {
@@ -426,14 +453,22 @@ a {
   border-bottom: 1px solid color-mix(in srgb, white 12%, transparent);
 }
 
+.site-notice .container {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .site-notice-inner {
-  padding: 0.875rem 0;
+  padding: 1rem 0;
 }
 
 .site-notice p {
   font-size: 0.8125rem;
   line-height: 1.55;
   text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .site-notice strong {
@@ -713,6 +748,23 @@ a {
   line-height: 1.5;
   color: var(--charcoal);
   background: #ffffff;
+}
+
+.section-header .services-discount {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, white 80%, transparent);
+}
+
+.section-header .services-discount a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.section-header .services-discount a:hover {
+  color: white;
 }
 
 .service-price {
@@ -1658,6 +1710,16 @@ a {
   color: var(--rose-light);
 }
 
+.pricing-amount-alt {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  color: color-mix(in srgb, white 75%, transparent);
+}
+
+.pricing-amount-alt strong {
+  color: var(--mint);
+}
+
 .pricing-period {
   font-size: 0.875rem;
   color: color-mix(in srgb, white 65%, transparent);
@@ -1771,6 +1833,54 @@ a {
   border-left: 3px solid var(--rose);
   background: white;
   border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.bioevolva {
+  padding: 4rem 0;
+  background: white;
+  border-top: 1px solid color-mix(in srgb, var(--charcoal) 6%, transparent);
+}
+
+.bioevolva h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--navy);
+}
+
+.bioevolva .eyebrow {
+  color: var(--rose);
+}
+
+.bioevolva-content p {
+  margin-top: 1rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--charcoal) 78%, transparent);
+}
+
+.bioevolva-perks {
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: color-mix(in srgb, var(--charcoal) 75%, transparent);
+}
+
+.bioevolva-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.bioevolva-note {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-left: 3px solid var(--mint);
+  background: color-mix(in srgb, var(--mint) 12%, white);
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: color-mix(in srgb, var(--charcoal) 78%, transparent);
 }
 
 .como-funciona {
