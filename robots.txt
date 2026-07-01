@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://carol-88.github.io/carolina-romero-landing/sitemap.xml
+Sitemap: https://carol-88.github.io/carolina-romero-dietista/sitemap.xml

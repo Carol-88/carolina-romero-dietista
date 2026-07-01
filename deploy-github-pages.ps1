@@ -1,9 +1,9 @@
-# Publicar landing en GitHub Pages
+# Publicar web dietista en GitHub Pages
 # Requisito previo: gh auth login
 
 $ErrorActionPreference = "Stop"
 $git = "C:\Program Files\Git\bin\git.exe"
-$repoName = "carolina-romero-landing"
+$repoName = "carolina-romero-dietista"
 
 Set-Location $PSScriptRoot
 
@@ -19,7 +19,7 @@ if (-not (Test-Path ".git")) {
 
 $status = & $git status --porcelain
 if ($status) {
-    & $git commit -m "Publicar landing Carolina Romero"
+    & $git commit -m "Publicar web Carolina Romero dietista"
 }
 
 $remotes = & $git remote 2>$null
@@ -33,6 +33,6 @@ $owner = (gh api user --jq .login)
 gh api "repos/$owner/$repoName/pages" -X POST -f build_type=legacy -f "source[branch]=main" -f "source[path]=/" 2>$null
 
 Write-Host ""
-Write-Host "Landing publicada en:"
+Write-Host "Web publicada en:"
 Write-Host "https://$owner.github.io/$repoName/"
 Write-Host ""
