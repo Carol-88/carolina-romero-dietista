@@ -577,9 +577,9 @@ a {
   padding-top: 1.25rem;
   border-top: 1px solid color-mix(in srgb, var(--rose) 20%, transparent);
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  font-style: italic;
-  line-height: 1.4;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.3;
   color: var(--navy);
   text-align: center;
 }
@@ -1183,8 +1183,9 @@ a {
 
 .footer-motto {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.3;
   color: color-mix(in srgb, white 90%, transparent);
   text-align: center;
 }
