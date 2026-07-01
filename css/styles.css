@@ -229,6 +229,26 @@ a {
 @media (min-width: 768px) {
   .nav {
     display: flex;
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav a {
+    font-size: 0.8125rem;
+  }
+
+  .header-cta {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .pricing-grid {
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -341,13 +361,28 @@ a {
 .hero-disclaimer {
   margin-top: 0.75rem;
   font-size: 0.8125rem;
+  line-height: 1.55;
   color: color-mix(in srgb, var(--charcoal) 55%, transparent);
   max-width: 36rem;
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 .hero-grid {
   display: grid;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
@@ -420,13 +455,44 @@ a {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.75rem;
+  width: 100%;
+}
+
+.hero-actions .btn-hero {
+  width: 100%;
+  max-width: 18.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  text-align: center;
+  text-wrap: balance;
+  padding: 0.875rem 1.25rem;
 }
 
 @media (min-width: 640px) {
   .hero-actions {
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-actions .btn-hero {
+    width: auto;
+    min-width: 12rem;
+    max-width: 15rem;
+    flex: 0 1 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .hero-actions .btn-hero {
+    max-width: 16.5rem;
   }
 }
 
@@ -475,12 +541,18 @@ a {
 .logo-card {
   position: relative;
   z-index: 1;
-  padding: 3rem 2.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 1.5rem;
   background: white;
   border: 1px solid color-mix(in srgb, white 60%, transparent);
   box-shadow: 0 25px 50px -12px color-mix(in srgb, var(--navy) 10%, transparent);
   text-align: center;
+}
+
+@media (min-width: 640px) {
+  .logo-card {
+    padding: 2.5rem 2rem;
+  }
 }
 
 .logo-card img {
@@ -504,12 +576,12 @@ a {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
   border-top: 1px solid color-mix(in srgb, var(--rose) 20%, transparent);
-  font-family: var(--font-script);
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-  line-height: 1.35;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.4;
   color: var(--navy);
   text-align: center;
-  overflow-wrap: anywhere;
 }
 
 /* Services */
@@ -1110,8 +1182,9 @@ a {
 }
 
 .footer-motto {
-  font-family: var(--font-script);
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   color: color-mix(in srgb, white 90%, transparent);
   text-align: center;
 }
@@ -1347,6 +1420,27 @@ a {
   flex-wrap: wrap;
   gap: 0.5rem;
   list-style: none;
+  justify-content: center;
+  max-width: 28rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-lead,
+  .hero-badges {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-badges {
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .hero-disclaimer {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .hero-badges li {
