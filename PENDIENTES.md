@@ -10,6 +10,17 @@
 
 ---
 
+## Backend propio (Docker + PostgreSQL)
+
+| # | Tarea | Estado | Notas |
+|---|--------|--------|--------|
+| B1 | **API Spring Boot** | ✅ Hecho | `backend/` — contacto y lista de espera |
+| B2 | **Docker Compose** | ✅ Hecho | `docker compose up` — API :8081, Postgres :5433 |
+| B3 | **Desplegar API en producción** | ⏳ Pendiente | Render, VPS, etc. + URL en `meta api-base-url` |
+| B4 | **Exportar leads** | ⏳ Manual | SQL en `backend/README.md` |
+
+---
+
 ## Prioridad alta (antes de cobrar clientes)
 
 | # | Tarea | Estado | Notas |
