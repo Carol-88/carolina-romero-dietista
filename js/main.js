@@ -3,16 +3,18 @@ const CONFIG = {
   email: "asesoria.carolinaromero@protonmail.com",
   phone: "+34 695 504 249",
   whatsapp: "34695504249",
+  /** Pegar URL de Tally al crear el formulario: https://tally.so/r/xxxxx */
+  questionnaireUrl: "",
+  /** Pegar HTML embed de Cal.com cuando esté listo (o dejar vacío) */
+  calEmbedHtml: "",
 };
 
 const SERVICE_LABELS = {
-  recomposicion: "Recomposición corporal",
-  alimentacion: "Alimentación saludable",
-  web: "Páginas web para negocios",
+  "consulta-gratis": "Consulta gratuita (30 min)",
+  "cita-unica": "Cita única — lista de espera",
+  trimestral: "Plan trimestral — lista de espera",
+  otro: "Otra consulta",
 };
-
-const form = document.getElementById("contact-form");
-const success = document.getElementById("form-success");
 
 function getServiceParam() {
   const fromSearch = new URLSearchParams(window.location.search).get("servicio");
@@ -20,8 +22,7 @@ function getServiceParam() {
 
   const hash = window.location.hash;
   if (hash.includes("?")) {
-    const query = hash.split("?")[1];
-    return new URLSearchParams(query).get("servicio");
+    return new URLSearchParams(hash.split("?")[1]).get("servicio");
   }
 
   return null;
@@ -29,17 +30,58 @@ function getServiceParam() {
 
 function applyServiceParam() {
   const serviceParam = getServiceParam();
+  const form = document.getElementById("contact-form");
   if (!serviceParam || !form) return;
 
   const select = form.querySelector('[name="service"]');
-  if (select && SERVICE_LABELS[serviceParam]) {
-    select.value = serviceParam;
+  const map = {
+    recomposicion: "trimestral",
+    alimentacion: "trimestral",
+    web: "otro",
+  };
+  const value = SERVICE_LABELS[serviceParam] ? serviceParam : map[serviceParam];
+  if (value && select?.querySelector(`option[value="${value}"]`)) {
+    select.value = value;
   }
 }
 
-if (form) {
+function initQuestionnaireLink() {
+  const link = document.getElementById("questionnaire-link");
+  const pending = document.getElementById("questionnaire-pending");
+  if (!link) return;
+
+  if (CONFIG.questionnaireUrl) {
+    link.href = CONFIG.questionnaireUrl;
+    link.removeAttribute("aria-disabled");
+    if (pending) pending.hidden = true;
+  } else {
+    link.href = "#";
+    link.setAttribute("aria-disabled", "true");
+    link.classList.add("btn-disabled");
+    link.addEventListener("click", (e) => e.preventDefault());
+    if (pending) pending.hidden = false;
+  }
+}
+
+function initCalEmbed() {
+  const container = document.getElementById("cal-embed");
+  if (!container || !CONFIG.calEmbedHtml) return;
+
+  container.innerHTML = CONFIG.calEmbedHtml;
+  container.classList.remove("cal-placeholder");
+}
+
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  const success = document.getElementById("form-success");
+  if (!form) return;
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
 
     const data = new FormData(form);
     const name = data.get("name");
@@ -49,27 +91,22 @@ if (form) {
     const message = data.get("message");
     const serviceLabel = SERVICE_LABELS[service] || service;
 
-    const subject = encodeURIComponent(
-      `[${CONFIG.name}] Consulta informativa — ${serviceLabel}`,
-    );
+    const subject = encodeURIComponent(`[${CONFIG.name}] ${serviceLabel}`);
     const body = encodeURIComponent(
-      `Hola Carolina,\n\nMe interesa (consulta informativa, sin contratación): ${serviceLabel}\n\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`,
+      `Hola Carolina,\n\nInterés: ${serviceLabel}\n\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`,
     );
 
     window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
-
     form.classList.add("hidden");
-    success.classList.add("visible");
+    success?.classList.add("visible");
   });
 }
 
-applyServiceParam();
-window.addEventListener("hashchange", applyServiceParam);
+function initNav() {
+  const navToggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
+  if (!navToggle || !nav) return;
 
-const navToggle = document.querySelector(".nav-toggle");
-const nav = document.querySelector(".nav");
-
-if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -86,3 +123,55 @@ if (navToggle && nav) {
     });
   });
 }
+
+async function loadTestimonials() {
+  const grid = document.getElementById("testimonials-grid");
+  const empty = document.getElementById("testimonials-empty");
+  if (!grid) return;
+
+  try {
+    const res = await fetch("data/testimonials.json");
+    if (!res.ok) throw new Error("No testimonials");
+    const items = await res.json();
+    const published = items.filter((t) => t.published !== false && !t.text?.includes("sustituir"));
+
+    if (!published.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+
+    if (empty) empty.hidden = true;
+    grid.innerHTML = published
+      .map(
+        (t) => `
+      <blockquote class="testimonial-card">
+        <p class="testimonial-text">"${escapeHtml(t.text)}"</p>
+        <footer>
+          <cite class="testimonial-author">${escapeHtml(t.name)}</cite>
+          ${t.context ? `<span class="testimonial-context">${escapeHtml(t.context)}</span>` : ""}
+        </footer>
+      </blockquote>`,
+      )
+      .join("");
+  } catch {
+    if (empty) empty.hidden = false;
+  }
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initQuestionnaireLink();
+  initCalEmbed();
+  initContactForm();
+  initNav();
+  loadTestimonials();
+  applyServiceParam();
+  window.addEventListener("hashchange", applyServiceParam);
+});
