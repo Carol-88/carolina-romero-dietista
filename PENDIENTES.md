@@ -6,9 +6,7 @@
 
 ---
 
-## Renombrar repositorio GitHub (si la URL antigua sigue activa)
-
-Si la web aún muestra `carolina-romero-landing` en la URL, en GitHub: **Settings → General → Repository name** → `carolina-romero-dietista`. GitHub redirige la URL antigua durante un tiempo.
+**Repositorio GitHub:** `carolina-romero-dietista` (renombrado desde `carolina-romero-landing`).
 
 ---
 
