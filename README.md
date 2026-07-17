@@ -8,7 +8,7 @@ Web profesional de **Carolina Romero** (Técnica Superior en Dietética): asesor
 | **Repositorio** | [Carol-88/carolina-romero-dietista](https://github.com/Carol-88/carolina-romero-dietista) |
 | **Email** | carolinaromero.dietista@proton.me |
 | **WhatsApp** | +34 695 504 249 |
-| **App relacionada** | [BioEvolva](https://bioevolva.es) (10 % dto. en asesoría para usuarias con cuenta) |
+| **App relacionada** | BioEvolva (fase beta; se avisará cuando esté disponible) |
 
 ---
 
@@ -17,7 +17,7 @@ Web profesional de **Carolina Romero** (Técnica Superior en Dietética): asesor
 - **Frontend estático** — HTML, CSS y JavaScript vanilla (sin React). Ideal para SEO y GitHub Pages.
 - **Backend propio** — Spring Boot + PostgreSQL + Docker (formulario de contacto y lista de espera).
 - **Páginas legales** — Aviso legal, privacidad, cookies y términos en `legal/`.
-- **Integraciones previstas** — Tally (cuestionario), Cal.com (reservas). Ver configuración más abajo.
+- **Integraciones** — Cal.eu (reservas + preguntas de booking).
 
 ---
 
@@ -34,7 +34,7 @@ dietista-landingpage/
 ├── backend/                # API Spring Boot (Java 21)
 ├── docker-compose.yml      # PostgreSQL + API en local
 ├── deploy-github-pages.ps1 # Publicar frontend en GitHub Pages
-├── PENDIENTES.md           # Checklist operativa (Tally, autónoma, etc.)
+├── PENDIENTES.md           # Checklist operativa (Cal.eu, autónoma, etc.)
 └── .env.example            # Variables de referencia
 ```
 
@@ -134,7 +134,6 @@ Datos de PostgreSQL se conservan en el volumen `dietista-postgres-data`.
 
 ```javascript
 const CONFIG = {
-  questionnaireUrl: "",  // Tally: https://tally.so/r/xxxxx
   calLink: "carolinaromero",
   calOrigin: "https://cal.eu",
   calEmbedScript: "https://app.cal.eu/embed/embed.js",
@@ -185,7 +184,7 @@ Documentación detallada en [`backend/README.md`](backend/README.md).
 | `POST` | `/api/leads/contact` | Formulario de contacto |
 | `POST` | `/api/leads/waitlist` | Lista de espera de planes |
 
-Ambos POST incluyen honeypot (`website`), consentimiento RGPD y campos opcionales BioEvolva / UTM.
+Ambos POST incluyen honeypot (`website`), consentimiento RGPD y UTM opcionales.
 
 ### Consultar leads en PostgreSQL
 
@@ -249,20 +248,20 @@ Requisito: `gh auth login`. El script hace commit de archivos estáticos y push 
 2. **Backend** en servidor con PostgreSQL gestionado.
 3. **`meta api-base-url`** en `index.html` con la URL pública del API.
 4. **`APP_CORS_ALLOWED_ORIGINS`** incluyendo la URL de la web.
-5. Completar pendientes en [`PENDIENTES.md`](PENDIENTES.md): **Cal.com primero**, luego Tally, NIF en legales, etc.
+5. Completar pendientes en [`PENDIENTES.md`](PENDIENTES.md): NIF en legales, etc.
 
 ---
 
 ## Planes y precios (orientativos)
 
-| Plan | Precio | BioEvolva (−10 %) |
-|------|--------|-------------------|
-| Consulta informativa | Gratis (30 min) | — |
-| Cita única (1 h) | 49 € | 44 € |
-| Plan trimestral (12 sem) | 179 € | 161 € |
-| Seguimiento suelto | 42 € | 38 € |
+| Plan | Precio |
+|------|--------|
+| Consulta informativa | Gratis (30 min por teléfono) |
+| Cita única (1 h) | 49 € |
+| Plan trimestral (12 sem) | 179 € |
+| Seguimiento suelto | 42 € |
 
-La consulta gratuita está abierta (WhatsApp / Cal.com cuando lo configures). Los planes de pago se formalizan tras la consulta, con propuesta escrita — no hay checkout online todavía.
+La consulta gratuita está abierta (Cal.eu / WhatsApp). Los planes de pago se formalizan tras la consulta, con propuesta escrita — no hay checkout online todavía.
 
 ---
 
@@ -290,9 +289,9 @@ La consulta gratuita está abierta (WhatsApp / Cal.com cuando lo configures). Lo
 
 ## Relación con BioEvolva
 
-- Landing de asesoría personalizada ↔ app [bioevolva.es](https://bioevolva.es).
-- Usuarias con cuenta en BioEvolva: **10 % de descuento** en todos los planes (indicar email de registro al contactar).
-- El backend de esta landing es **independiente** del de BioEvolva (`menu-app-front`).
+- BioEvolva es una app complementaria de menús y hábitos, actualmente en **fase beta**.
+- Cuando esté disponible se avisará desde la web y los canales de contacto.
+- El backend de esta landing es **independiente** del de BioEvolva.
 
 ---
 

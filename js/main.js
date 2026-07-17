@@ -5,7 +5,6 @@ const CONFIG = {
   whatsapp: "34695504249",
   /** API propia (Docker). Vacío = solo mailto. Producción: meta api-base-url en index.html */
   apiBaseUrl: document.querySelector('meta[name="api-base-url"]')?.content?.trim() || "",
-  questionnaireUrl: "",
   /** Perfil Cal.eu — https://cal.eu/carolinaromero */
   calLink: "carolinaromero",
   calOrigin: "https://cal.eu",
@@ -97,12 +96,6 @@ async function postJson(path, body) {
   return payload;
 }
 
-function readBioevolvaFields(form) {
-  const isUser = form.querySelector('[name="bioevolva_user"]')?.checked === true;
-  const bioEmail = form.querySelector('[name="bioevolva_email"]')?.value?.trim() || "";
-  return { bioevolvaUser: isUser, bioevolvaEmail: isUser ? bioEmail : undefined };
-}
-
 function trackingPayload() {
   const utm = getUtmParams();
   return {
@@ -111,24 +104,6 @@ function trackingPayload() {
     utmMedium: utm.utmMedium,
     utmCampaign: utm.utmCampaign,
   };
-}
-
-function initQuestionnaireLink() {
-  const link = document.getElementById("questionnaire-link");
-  const pending = document.getElementById("questionnaire-pending");
-  if (!link) return;
-
-  if (CONFIG.questionnaireUrl) {
-    link.href = CONFIG.questionnaireUrl;
-    link.removeAttribute("aria-disabled");
-    if (pending) pending.hidden = true;
-  } else {
-    link.href = "#";
-    link.setAttribute("aria-disabled", "true");
-    link.classList.add("btn-disabled");
-    link.addEventListener("click", (e) => e.preventDefault());
-    if (pending) pending.hidden = false;
-  }
 }
 
 function ensureCalStub() {
@@ -217,14 +192,10 @@ function submitWaitlistViaMailto(form) {
   const email = data.get("email");
   const plan = data.get("plan");
   const planLabel = WAITLIST_PLAN_LABELS[plan] || plan;
-  const bio = readBioevolvaFields(form);
-  const bioLine = bio.bioevolvaUser
-    ? `\nBioEvolva: sí (${bio.bioevolvaEmail || email})`
-    : "\nBioEvolva: no";
 
   const subject = encodeURIComponent(`[${CONFIG.name}] Lista de interés — ${planLabel}`);
   const body = encodeURIComponent(
-    `Hola Carolina,\n\nQuiero apuntarme a la lista de interés.\n\nEmail: ${email}\nPlan: ${planLabel}${bioLine}\n`,
+    `Hola Carolina,\n\nQuiero apuntarme a la lista de interés.\n\nEmail: ${email}\nPlan: ${planLabel}\n`,
   );
 
   window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
@@ -239,7 +210,6 @@ function showFormSuccess(formId, successId) {
 
 async function submitContactViaApi(form) {
   const data = new FormData(form);
-  const bio = readBioevolvaFields(form);
 
   await postJson("/api/leads/contact", {
     name: data.get("name"),
@@ -247,8 +217,6 @@ async function submitContactViaApi(form) {
     phone: data.get("phone") || undefined,
     service: data.get("service"),
     message: data.get("message"),
-    bioevolvaUser: bio.bioevolvaUser,
-    bioevolvaEmail: bio.bioevolvaEmail,
     privacyConsent: true,
     website: data.get("website") || "",
     ...trackingPayload(),
@@ -262,16 +230,11 @@ function submitContactViaMailto(form) {
   const phone = data.get("phone") || "No indicado";
   const service = data.get("service");
   const message = data.get("message");
-  const bio = readBioevolvaFields(form);
   const serviceLabel = SERVICE_LABELS[service] || service;
-
-  const bioLine = bio.bioevolvaUser
-    ? `\nBioEvolva: sí (${bio.bioevolvaEmail || email})`
-    : "\nBioEvolva: no";
 
   const subject = encodeURIComponent(`[${CONFIG.name}] ${serviceLabel}`);
   const body = encodeURIComponent(
-    `Hola Carolina,\n\nInterés: ${serviceLabel}\n\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}${bioLine}\n\nMensaje:\n${message}`,
+    `Hola Carolina,\n\nInterés: ${serviceLabel}\n\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone}\n\nMensaje:\n${message}`,
   );
 
   window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
@@ -281,8 +244,6 @@ function initContactForm() {
   const form = document.getElementById("contact-form");
   const errorEl = document.getElementById("contact-form-error");
   if (!form) return;
-
-  initBioevolvaToggle(form, "bioevolva-fields");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -323,8 +284,6 @@ function initWaitlistForm() {
   const errorEl = document.getElementById("waitlist-form-error");
   if (!form) return;
 
-  initBioevolvaToggle(form, "waitlist-bioevolva-fields");
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
@@ -335,15 +294,12 @@ function initWaitlistForm() {
     if (errorEl) errorEl.hidden = true;
 
     const data = new FormData(form);
-    const bio = readBioevolvaFields(form);
 
     try {
       if (apiAvailable()) {
         await postJson("/api/leads/waitlist", {
           email: data.get("email"),
           plan: data.get("plan"),
-          bioevolvaUser: bio.bioevolvaUser,
-          bioevolvaEmail: bio.bioevolvaEmail,
           privacyConsent: true,
           website: data.get("website") || "",
           ...trackingPayload(),
@@ -368,21 +324,6 @@ function initWaitlistForm() {
       }
     }
   });
-}
-
-function initBioevolvaToggle(form, fieldsId) {
-  const checkbox = form.querySelector('[name="bioevolva_user"]');
-  const fields = document.getElementById(fieldsId);
-  if (!checkbox || !fields) return;
-
-  const sync = () => {
-    fields.hidden = !checkbox.checked;
-    const emailInput = fields.querySelector('[name="bioevolva_email"]');
-    if (emailInput) emailInput.required = checkbox.checked;
-  };
-
-  checkbox.addEventListener("change", sync);
-  sync();
 }
 
 function initNav() {
@@ -417,7 +358,7 @@ function initWhatsappLinks() {
   } else if (servicio === "cita-unica") {
     text = "Hola Carolina, me interesa la cita única.";
   } else if (params.get("utm_source") === "bioevolva") {
-    text = "Hola Carolina, vengo desde BioEvolva y me interesa la asesoría.";
+    text = "Hola Carolina, me interesa la asesoría y que me avises cuando BioEvolva esté disponible.";
   }
 
   const encoded = encodeURIComponent(text);
@@ -477,7 +418,6 @@ function escapeHtml(str) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initQuestionnaireLink();
   initCalEmbed();
   initContactForm();
   initWaitlistForm();

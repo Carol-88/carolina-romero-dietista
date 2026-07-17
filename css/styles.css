@@ -1752,6 +1752,17 @@ a {
   margin-top: 1.25rem;
 }
 
+.pricing-card .btn-rose {
+  background: var(--rose);
+  color: #fff;
+  border: none;
+}
+
+.pricing-card .btn-rose:hover {
+  background: var(--rose-light);
+  color: #fff;
+}
+
 .pricing-badge {
   display: inline-block;
   margin-top: 1.25rem;
@@ -2019,7 +2030,7 @@ a {
 
 @media (min-width: 1024px) {
   .steps-list {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -2059,6 +2070,14 @@ a {
 .booking {
   padding: 4rem 0;
   background: var(--navy);
+}
+
+.booking-panel {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  border-radius: 1rem;
+  background: white;
+  border: 1px solid color-mix(in srgb, var(--charcoal) 8%, transparent);
 }
 
 .booking-steps {

@@ -29,15 +29,13 @@ Sin API en GitHub Pages: contacto y lista de interés usan **mailto** + WhatsApp
 
 | # | Tarea | Estado | Notas |
 |---|--------|--------|--------|
-| 1 | **Cal.eu (prioridad nº 1)** | ✅ Hecho | [cal.eu/carolinaromero](https://cal.eu/carolinaromero) — embed en `js/main.js` (`calLink` + `calOrigin`) |
-| 2 | **Tally (prioridad nº 2)** | ⏳ Pendiente | Mejora la preparación de la cita. Pegar URL en `questionnaireUrl`. |
-| 3 | **NIF/NIE en legales** | ⏳ Cuando proceda | Sustituir el placeholder en `legal/aviso-legal.html` y `legal/privacidad.html`. |
-| 4 | **Dirección fiscal completa** | ⏳ Parcial | Teruel indicado; dirección exacta en documentación de contratación / cuando tengas alta. |
-| 5 | **Alta como autónoma** | ⏳ Según volumen | Según asesoría fiscal: cuando ingresos justifiquen cuota + gestor (o SMI). Obligatorio antes de facturar de forma habitual. |
-| 6 | **Dominio propio** | ⏳ Opcional | Ej. `carolinaromero.com` — sustituir URL de GitHub en SEO y legales. |
+| 1 | **Cal.eu + preguntas de reserva** | ✅ Hecho | [cal.eu/carolinaromero](https://cal.eu/carolinaromero) — slot + cuestionario en el mismo flujo; email de Cal con respuestas |
+| 2 | **NIF/NIE en legales** | ⏳ Cuando proceda | Sustituir el placeholder en `legal/aviso-legal.html` y `legal/privacidad.html`. |
+| 3 | **Dirección fiscal completa** | ⏳ Parcial | Teruel indicado; dirección exacta en documentación de contratación / cuando tengas alta. |
+| 4 | **Alta como autónoma** | ⏳ Según volumen | Según asesoría fiscal: cuando ingresos justifiquen cuota + gestor (o SMI). Obligatorio antes de facturar de forma habitual. |
+| 5 | **Dominio propio** | ⏳ Opcional | Ej. `carolinaromero.com` — sustituir URL de GitHub en SEO y legales. |
 
-**¿Por qué Cal.com antes que Tally?**  
-La consulta gratis de 30 min es el producto que ofreces ahora y todos los CTAs llevan a `#reserva`. Sin calendario (o WhatsApp, que ya está como fallback), el embudo se corta. Tally mejora el cribado, pero las primeras clientas pueden gestionar la anamnesis por WhatsApp/email.
+El cuestionario previo va integrado en Cal.eu (booking questions). **No hace falta Tally.**
 
 ---
 
@@ -80,18 +78,9 @@ calEmbedScript: "https://app.cal.eu/embed/embed.js",
 
 Si creas un evento con slug propio (ej. `carolinaromero/consulta-gratis`), cambia `calLink` a ese path.
 
+Las **preguntas de reserva** (hábitos, objetivo, teléfono, etc.) están configuradas en el propio evento de Cal.eu: al confirmar la cita llegan en el email de notificación.
+
 Eventos de pago (49 € / 179 €): crear en borrador; cobro online (Stripe) solo cuando tu asesor/a lo indique tras el alta.
-
-### Tally — cuestionario previo (después de Cal)
-
-1. Registrarse en [tally.so](https://tally.so) con `carolinaromero.dietista@proton.me`.
-2. Crear formulario: datos personales, objetivo, hábitos, salud (cribado), interés en grupo WhatsApp, RGPD.
-3. Al final: enlace de vuelta a `#reserva` o mensaje de “cita confirmada”.
-4. Copiar enlace público → `js/main.js`:
-
-```javascript
-questionnaireUrl: "https://tally.so/r/XXXXXX",
-```
 
 ---
 
@@ -121,7 +110,7 @@ questionnaireUrl: "https://tally.so/r/XXXXXX",
 
 | Archivo | Para qué |
 |---------|----------|
-| `js/main.js` | URL Tally, embed Cal.com, email, WhatsApp |
+| `js/main.js` | Embed Cal.eu, email, WhatsApp |
 | `data/testimonials.json` | Opiniones publicadas en la web |
 | `index.html` | Contenido principal |
 | `legal/aviso-legal.html` | NIF, domicilio, URL web |
@@ -132,11 +121,10 @@ questionnaireUrl: "https://tally.so/r/XXXXXX",
 
 ## Checklist “¿puedo empezar ya?”
 
-- [x] Consulta gratis visible y con CTA claro (WhatsApp hasta tener Cal.com)
+- [x] Consulta gratis visible y con CTA claro
 - [x] Copy sin bloquear por “falta alta de autónoma”
 - [x] Lista de interés con fallback mailto (sin Docker en producción)
-- [x] Cal.eu configurado ([cal.eu/carolinaromero](https://cal.eu/carolinaromero))
-- [ ] Tally (recomendado) en `questionnaireUrl`
+- [x] Cal.eu con preguntas de reserva ([cal.eu/carolinaromero](https://cal.eu/carolinaromero))
 - [ ] NIF en legales cuando proceda
 - [ ] Alta de autónoma + quitar fricción de cobro cuando toque facturar
 
