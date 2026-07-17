@@ -98,6 +98,7 @@ Eventos de pago (49 € / 179 €): crear en borrador; cobro online (Stripe) sol
 
 | Tarea | Descripción |
 |--------|-------------|
+| **Panel / CRM de clientas** | **Prioridad mañana (18 jul 2026).** Web aparte o panel admin: perfiles, objetivos, progresos, seguimiento de asesorías. Decidir stack (¿ampliar el backend Spring actual?). |
 | **Reseñas con login** | Solo clientas verificadas; requiere backend. |
 | **Google Business Profile** | Cuando tengas clientas y reseñas en Google. |
 | **Google Search Console** | Registrar la URL y enviar `sitemap.xml`. |
