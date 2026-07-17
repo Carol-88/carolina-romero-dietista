@@ -6,7 +6,7 @@ Web profesional de **Carolina Romero** (Técnica Superior en Dietética): asesor
 |---|---|
 | **Web publicada** | https://carol-88.github.io/carolina-romero-dietista/ |
 | **Repositorio** | [Carol-88/carolina-romero-dietista](https://github.com/Carol-88/carolina-romero-dietista) |
-| **Email** | asesoria.carolinaromero@protonmail.com |
+| **Email** | carolinaromero.dietista@proton.me |
 | **WhatsApp** | +34 695 504 249 |
 | **App relacionada** | [BioEvolva](https://bioevolva.es) (10 % dto. en asesoría para usuarias con cuenta) |
 
@@ -71,7 +71,7 @@ Abre http://localhost:5500
 **Comportamiento sin API:**
 
 - El **formulario de contacto** abre el cliente de correo (`mailto`).
-- La **lista de espera** muestra aviso de que necesita el servidor.
+- La **lista de interés** abre el correo (`mailto`) si no hay API.
 
 ### 2. Frontend + backend (recomendado en desarrollo)
 
@@ -126,7 +126,7 @@ Datos de PostgreSQL se conservan en el volumen `dietista-postgres-data`.
 
 | Valor | Efecto |
 |-------|--------|
-| Vacío | Contacto por `mailto`; lista de espera requiere API |
+| Vacío | Contacto y lista de interés por `mailto` (+ WhatsApp) |
 | `http://localhost:8081` | Desarrollo local con Docker |
 | `https://api.tudominio.com` | Producción |
 
@@ -135,7 +135,9 @@ Datos de PostgreSQL se conservan en el volumen `dietista-postgres-data`.
 ```javascript
 const CONFIG = {
   questionnaireUrl: "",  // Tally: https://tally.so/r/xxxxx
-  calEmbedHtml: "",      // HTML embed de Cal.com
+  calLink: "carolinaromero",
+  calOrigin: "https://cal.eu",
+  calEmbedScript: "https://app.cal.eu/embed/embed.js",
   // email, whatsapp: ya configurados
 };
 ```
@@ -247,7 +249,7 @@ Requisito: `gh auth login`. El script hace commit de archivos estáticos y push 
 2. **Backend** en servidor con PostgreSQL gestionado.
 3. **`meta api-base-url`** en `index.html` con la URL pública del API.
 4. **`APP_CORS_ALLOWED_ORIGINS`** incluyendo la URL de la web.
-5. Completar pendientes en [`PENDIENTES.md`](PENDIENTES.md): Tally, Cal.com, NIF en legales, autónoma, etc.
+5. Completar pendientes en [`PENDIENTES.md`](PENDIENTES.md): **Cal.com primero**, luego Tally, NIF en legales, etc.
 
 ---
 
@@ -260,7 +262,7 @@ Requisito: `gh auth login`. El script hace commit de archivos estáticos y push 
 | Plan trimestral (12 sem) | 179 € | 161 € |
 | Seguimiento suelto | 42 € | 38 € |
 
-Los planes de pago llevan badge **«Próximamente»** hasta formalizar la actividad como autónoma.
+La consulta gratuita está abierta (WhatsApp / Cal.com cuando lo configures). Los planes de pago se formalizan tras la consulta, con propuesta escrita — no hay checkout online todavía.
 
 ---
 
@@ -298,4 +300,4 @@ Los planes de pago llevan badge **«Próximamente»** hasta formalizar la activi
 
 © Carolina Romero. Contenido y diseño de la asesoría.
 
-Para dudas técnicas del repo: revisar `PENDIENTES.md` y abrir issue en GitHub. Para consultas de negocio: asesoria.carolinaromero@protonmail.com
+Para dudas técnicas del repo: revisar `PENDIENTES.md` y abrir issue en GitHub. Para consultas de negocio: carolinaromero.dietista@proton.me

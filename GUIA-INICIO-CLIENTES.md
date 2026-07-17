@@ -2,9 +2,11 @@
 
 **Para:** Carolina Romero — Técnica Superior en Dietética (CFGS) + Desarrolladora Web  
 **Objetivo:** Empezar a captar clientes de forma legal, con poca inversión y sin saltarse trámites.  
-**Última revisión:** mayo 2026
+**Última revisión:** julio 2026
 
 > ⚠️ **Aviso:** Esta guía es orientativa, no sustituye asesoramiento legal, fiscal ni sanitario. Ante dudas concretas, consulta con un gestor/a, el [Punto de Atención al Emprendedor (PAE)](https://one.gob.es/) o la administración competente.
+
+**Actualización (asesoría fiscal, julio 2026):** te indicaron que puedes empezar a trabajar hasta que el volumen de ingresos justifique la cuota de autónomo + gestoría (o, en su defecto, el SMI). Usa eso como criterio práctico con tu asesor/a; cuando vayas a **facturar de forma habitual**, confirma el momento exacto del alta. La web prioriza la **consulta gratuita** y formaliza planes de pago con propuesta escrita.
 
 ---
 
@@ -13,11 +15,11 @@
 | Fase | ¿Puedes hacerlo? | ¿Necesitas ser autónoma? |
 |------|------------------|---------------------------|
 | Publicar landing, LinkedIn, contactar gente | ✅ Sí | ❌ No |
-| Consultas **gratuitas** para captar clientes | ✅ Sí (con límites) | ❌ No |
-| Cobrar por asesoría o webs | ✅ Sí | ✅ **Sí, obligatorio antes de facturar** |
-| Facturar sin alta en Hacienda y Seguridad Social | ❌ **No es legal** | — |
+| Consultas **gratuitas** para captar clientes | ✅ Sí | ❌ No |
+| Cobrar / facturar de forma habitual | Según tu asesor/a y volumen | ✅ Suele requerir alta RETA + Hacienda |
+| Ignorar el criterio de tu gestor/a | ❌ No | — |
 
-**Regla de oro:** puedes **buscar** clientes ya; solo puedes **cobrar** cuando estés dada de alta como autónoma en Hacienda (modelo 036) y en la Seguridad Social (RETA).
+**Regla práctica ahora:** busca clientas y ofrece la consulta gratis ya. Coordina con tu asesor/a el alta cuando el groso de ingresos lo justifique.
 
 ---
 
@@ -486,7 +488,7 @@ Empieza **por debajo** si necesitas primeros casos de éxito y testimonios. Sube
 - [ ] Email de contacto real (no placeholder)
 - [ ] Landing publicada en una URL accesible
 - [ ] Mensaje de outreach preparado
-- [ ] Claro en tu cabeza: **gratis = ya** | **cobrar = autónoma primero**
+- [ ] Claro en tu cabeza: **consulta gratis = ya** | **cobrar habitual = alta cuando tu asesor/a lo indique**
 
 ---
 

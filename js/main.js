@@ -1,18 +1,21 @@
 const CONFIG = {
   name: "Carolina Romero",
-  email: "asesoria.carolinaromero@protonmail.com",
+  email: "carolinaromero.dietista@proton.me",
   phone: "+34 695 504 249",
   whatsapp: "34695504249",
   /** API propia (Docker). Vacío = solo mailto. Producción: meta api-base-url en index.html */
   apiBaseUrl: document.querySelector('meta[name="api-base-url"]')?.content?.trim() || "",
   questionnaireUrl: "",
-  calEmbedHtml: "",
+  /** Perfil Cal.eu — https://cal.eu/carolinaromero */
+  calLink: "carolinaromero",
+  calOrigin: "https://cal.eu",
+  calEmbedScript: "https://app.cal.eu/embed/embed.js",
 };
 
 const SERVICE_LABELS = {
   "consulta-gratis": "Consulta gratuita (30 min)",
-  "cita-unica": "Cita única — lista de espera",
-  trimestral: "Plan trimestral — lista de espera",
+  "cita-unica": "Cita única (49 €)",
+  trimestral: "Plan trimestral (179 €)",
   otro: "Otra consulta",
 };
 
@@ -128,12 +131,103 @@ function initQuestionnaireLink() {
   }
 }
 
+function ensureCalStub() {
+  if (window.Cal) return;
+
+  (function (C, A, L) {
+    const p = function (a, ar) {
+      a.q.push(ar);
+    };
+    const d = C.document;
+    C.Cal =
+      C.Cal ||
+      function () {
+        const cal = C.Cal;
+        const ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () {
+            p(api, arguments);
+          };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+  })(window, CONFIG.calEmbedScript, "init");
+}
+
 function initCalEmbed() {
   const container = document.getElementById("cal-embed");
-  if (!container || !CONFIG.calEmbedHtml) return;
+  if (!container || !CONFIG.calLink) return;
 
-  container.innerHTML = CONFIG.calEmbedHtml;
+  const inlineId = "cal-inline";
   container.classList.remove("cal-placeholder");
+  container.classList.add("cal-embed-active");
+  container.innerHTML = `<div id="${inlineId}" class="cal-inline"></div>`;
+
+  try {
+    ensureCalStub();
+    window.Cal("init", { origin: CONFIG.calOrigin });
+    window.Cal("inline", {
+      elementOrSelector: `#${inlineId}`,
+      calLink: CONFIG.calLink,
+      config: {
+        layout: "month_view",
+        theme: "light",
+      },
+    });
+    window.Cal("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view",
+    });
+  } catch {
+    container.classList.add("cal-placeholder");
+    container.classList.remove("cal-embed-active");
+    container.innerHTML = `
+      <p class="cal-placeholder-title">Reservar consulta gratis</p>
+      <p>El calendario no se pudo cargar aquí. Ábrelo en una pestaña nueva.</p>
+      <a class="btn btn-rose btn-full" href="${CONFIG.calOrigin}/${CONFIG.calLink}" target="_blank" rel="noopener noreferrer">
+        Abrir calendario Cal.eu
+      </a>
+      <p class="cal-placeholder-hint">
+        O reserva por
+        <a href="https://wa.me/${CONFIG.whatsapp}" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+      </p>
+    `;
+    initWhatsappLinks();
+  }
+}
+
+function submitWaitlistViaMailto(form) {
+  const data = new FormData(form);
+  const email = data.get("email");
+  const plan = data.get("plan");
+  const planLabel = WAITLIST_PLAN_LABELS[plan] || plan;
+  const bio = readBioevolvaFields(form);
+  const bioLine = bio.bioevolvaUser
+    ? `\nBioEvolva: sí (${bio.bioevolvaEmail || email})`
+    : "\nBioEvolva: no";
+
+  const subject = encodeURIComponent(`[${CONFIG.name}] Lista de interés — ${planLabel}`);
+  const body = encodeURIComponent(
+    `Hola Carolina,\n\nQuiero apuntarme a la lista de interés.\n\nEmail: ${email}\nPlan: ${planLabel}${bioLine}\n`,
+  );
+
+  window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
 }
 
 function showFormSuccess(formId, successId) {
@@ -212,7 +306,7 @@ function initContactForm() {
         if (title) title.textContent = "Mensaje preparado";
         if (text) {
           text.innerHTML =
-            'Se abrirá tu correo. Si no, escribe a <a href="mailto:asesoria.carolinaromero@protonmail.com">asesoria.carolinaromero@protonmail.com</a>.';
+            'Se abrirá tu correo. Si no, escribe a <a href="mailto:carolinaromero.dietista@proton.me">carolinaromero.dietista@proton.me</a>.';
         }
       }
     } catch (err) {
@@ -238,31 +332,35 @@ function initWaitlistForm() {
       return;
     }
 
-    if (!apiAvailable()) {
-      if (errorEl) {
-        errorEl.textContent =
-          "La lista de espera requiere el servidor activo. Ejecuta docker compose up o escríbeme por WhatsApp.";
-        errorEl.hidden = false;
-      }
-      return;
-    }
-
     if (errorEl) errorEl.hidden = true;
 
     const data = new FormData(form);
     const bio = readBioevolvaFields(form);
 
     try {
-      await postJson("/api/leads/waitlist", {
-        email: data.get("email"),
-        plan: data.get("plan"),
-        bioevolvaUser: bio.bioevolvaUser,
-        bioevolvaEmail: bio.bioevolvaEmail,
-        privacyConsent: true,
-        website: data.get("website") || "",
-        ...trackingPayload(),
-      });
-      showFormSuccess("waitlist-form", "waitlist-success");
+      if (apiAvailable()) {
+        await postJson("/api/leads/waitlist", {
+          email: data.get("email"),
+          plan: data.get("plan"),
+          bioevolvaUser: bio.bioevolvaUser,
+          bioevolvaEmail: bio.bioevolvaEmail,
+          privacyConsent: true,
+          website: data.get("website") || "",
+          ...trackingPayload(),
+        });
+        showFormSuccess("waitlist-form", "waitlist-success");
+      } else {
+        submitWaitlistViaMailto(form);
+        showFormSuccess("waitlist-form", "waitlist-success");
+        const success = document.getElementById("waitlist-success");
+        const title = success?.querySelector("h3");
+        const text = success?.querySelector("p");
+        if (title) title.textContent = "Mensaje preparado";
+        if (text) {
+          text.innerHTML =
+            'Se abrirá tu correo. Si no, escríbeme por <a href="https://wa.me/34695504249" target="_blank" rel="noopener noreferrer">WhatsApp</a> o a <a href="mailto:carolinaromero.dietista@proton.me">carolinaromero.dietista@proton.me</a>.';
+        }
+      }
     } catch (err) {
       if (errorEl) {
         errorEl.textContent = err.message || "Error al apuntarte.";

@@ -1,12 +1,14 @@
 # Pendientes — Web Carolina Romero (dietista)
 
-**Última actualización:** mayo 2026  
+**Última actualización:** julio 2026  
 **Web actual:** https://carol-88.github.io/carolina-romero-dietista/  
-**Email:** asesoria.carolinaromero@protonmail.com
+**Email:** carolinaromero.dietista@proton.me
 
 ---
 
 **Repositorio GitHub:** `carolina-romero-dietista` (renombrado desde `carolina-romero-landing`).
+
+**Marco fiscal (asesoría julio 2026):** puedes empezar a trabajar (consultas gratis y captación) sin alta de autónoma hasta que el volumen de ingresos justifique la cuota de autónomo + gestoría, o en su defecto el SMI. **Cuando vayas a cobrar de forma habitual**, confirma con tu asesor/a el momento exacto del alta. La web ya está orientada a **consulta gratis abierta**; los planes de pago se formalizan con propuesta escrita (no checkout online).
 
 ---
 
@@ -19,18 +21,23 @@
 | B3 | **Desplegar API en producción** | ⏳ Pendiente | Render, VPS, etc. + URL en `meta api-base-url` |
 | B4 | **Exportar leads** | ⏳ Manual | SQL en `backend/README.md` |
 
+Sin API en GitHub Pages: contacto y lista de interés usan **mailto** + WhatsApp.
+
 ---
 
-## Prioridad alta (antes de cobrar clientes)
+## Para empezar a dar asesorías (orden recomendado)
 
 | # | Tarea | Estado | Notas |
 |---|--------|--------|--------|
-| 1 | **Alta como autónoma** | ⏳ Pendiente | Tras asesoría fiscal. Obligatorio antes de facturar 49 € / 179 €. |
-| 2 | **NIF/NIE en aviso legal** | ⏳ Pendiente | `legal/aviso-legal.html` y `legal/privacidad.html` — campo `[COMPLETAR]`. |
-| 3 | **Dirección fiscal completa** | ⏳ Parcial | Teruel indicado; falta dirección exacta cuando tengas autónoma. |
-| 4 | **Cuestionario Tally** | ⏳ Pendiente | Crear en [tally.so](https://tally.so) y pegar URL en `js/main.js` → `questionnaireUrl`. |
-| 5 | **Cal.com** | ⏳ Pendiente | Cuenta con Protonmail; evento consulta gratis 30 min; horario 9–13 y 15–19 h. Pegar embed en `js/main.js` → `calEmbedHtml`. |
-| 6 | **Dominio propio barato** | ⏳ Pendiente | Ej. `carolinaromero.com` — sustituir URL de GitHub en SEO y legales. |
+| 1 | **Cal.eu (prioridad nº 1)** | ✅ Hecho | [cal.eu/carolinaromero](https://cal.eu/carolinaromero) — embed en `js/main.js` (`calLink` + `calOrigin`) |
+| 2 | **Tally (prioridad nº 2)** | ⏳ Pendiente | Mejora la preparación de la cita. Pegar URL en `questionnaireUrl`. |
+| 3 | **NIF/NIE en legales** | ⏳ Cuando proceda | Sustituir el placeholder en `legal/aviso-legal.html` y `legal/privacidad.html`. |
+| 4 | **Dirección fiscal completa** | ⏳ Parcial | Teruel indicado; dirección exacta en documentación de contratación / cuando tengas alta. |
+| 5 | **Alta como autónoma** | ⏳ Según volumen | Según asesoría fiscal: cuando ingresos justifiquen cuota + gestor (o SMI). Obligatorio antes de facturar de forma habitual. |
+| 6 | **Dominio propio** | ⏳ Opcional | Ej. `carolinaromero.com` — sustituir URL de GitHub en SEO y legales. |
+
+**¿Por qué Cal.com antes que Tally?**  
+La consulta gratis de 30 min es el producto que ofreces ahora y todos los CTAs llevan a `#reserva`. Sin calendario (o WhatsApp, que ya está como fallback), el embudo se corta. Tally mejora el cribado, pero las primeras clientas pueden gestionar la anamnesis por WhatsApp/email.
 
 ---
 
@@ -39,8 +46,8 @@
 | # | Tarea | Estado | Notas |
 |---|--------|--------|--------|
 | 7 | **Foto profesional** | ⏳ Pendiente | Hero y “Sobre mí”; ahora solo logo. |
-| 8 | **Testimonios reales** | ⏳ Pendiente | Con consentimiento por escrito. Añadir en `data/testimonials.json` (ver formato abajo). |
-| 9 | **Título definitivo CFGS** | ⏳ En trámite | Ya tienes certificado provisional; actualizar copy cuando llegue el físico. |
+| 8 | **Testimonios reales** | ⏳ Pendiente | Con consentimiento por escrito. Añadir en `data/testimonials.json`. |
+| 9 | **Título definitivo CFGS** | ⏳ En trámite | Certificado provisional; actualizar copy cuando llegue el físico. |
 
 ### Formato `data/testimonials.json`
 
@@ -59,38 +66,41 @@
 
 ## Herramientas externas (paso a paso)
 
-### Tally — cuestionario previo
+### Cal.eu — reservas ✅
 
-1. Registrarse en [tally.so](https://tally.so) con Protonmail.
-2. Crear formulario con bloques: datos personales, objetivo, hábitos, salud (cribado), interés en grupo WhatsApp, RGPD.
-3. Al final del formulario: enlace a la sección **Reserva** de la web (o a Cal.com cuando esté).
+Perfil activo: [https://cal.eu/carolinaromero](https://cal.eu/carolinaromero)
+
+Configuración en `js/main.js`:
+
+```javascript
+calLink: "carolinaromero",
+calOrigin: "https://cal.eu",
+calEmbedScript: "https://app.cal.eu/embed/embed.js",
+```
+
+Si creas un evento con slug propio (ej. `carolinaromero/consulta-gratis`), cambia `calLink` a ese path.
+
+Eventos de pago (49 € / 179 €): crear en borrador; cobro online (Stripe) solo cuando tu asesor/a lo indique tras el alta.
+
+### Tally — cuestionario previo (después de Cal)
+
+1. Registrarse en [tally.so](https://tally.so) con `carolinaromero.dietista@proton.me`.
+2. Crear formulario: datos personales, objetivo, hábitos, salud (cribado), interés en grupo WhatsApp, RGPD.
+3. Al final: enlace de vuelta a `#reserva` o mensaje de “cita confirmada”.
 4. Copiar enlace público → `js/main.js`:
 
 ```javascript
 questionnaireUrl: "https://tally.so/r/XXXXXX",
 ```
 
-### Cal.com — reservas
-
-1. [cal.com](https://cal.com) → registro con `asesoria.carolinaromero@protonmail.com`.
-2. Conectar Google Calendar.
-3. Crear evento **Consulta informativa gratuita** — 30 min, 0 €.
-4. Disponibilidad: Lun–Vie, 9:00–13:00 y 15:00–19:00 (hora peninsular).
-5. Evento → **Embed** → copiar HTML → `js/main.js`:
-
-```javascript
-calEmbedHtml: `<div>...</div>`,
-```
-
-6. Eventos de pago (49 € / 179 €): crear en borrador; activar Stripe **solo** con autónoma.
-
 ---
 
 ## Fiscal y legal (post-asesoría)
 
-- [ ] Epígrafe IAE **839** (asesoría nutricional) — confirmar con gestor/a.
+- [ ] Confirmar con gestor/a el **umbral** concreto para alta RETA + Hacienda en tu caso.
+- [ ] Epígrafe IAE **839** (asesoría nutricional) — confirmar.
 - [ ] Seguro de responsabilidad civil profesional (recomendado antes de cobrar).
-- [ ] Facturación: VeriFactu / software o gestoría.
+- [ ] Facturación: VeriFactu / software o gestoría cuando cobres.
 - [ ] Actualizar términos si cambian precios o condiciones del grupo WhatsApp.
 
 ---
@@ -99,11 +109,11 @@ calEmbedHtml: `<div>...</div>`,
 
 | Tarea | Descripción |
 |--------|-------------|
-| **Reseñas con login** | Solo clientas verificadas; requiere Supabase o similar (backend). |
+| **Reseñas con login** | Solo clientas verificadas; requiere backend. |
 | **Google Business Profile** | Cuando tengas clientas y reseñas en Google. |
 | **Google Search Console** | Registrar la URL y enviar `sitemap.xml`. |
 | **Blog / SEO** | Artículos sobre hábitos, menús semanales, etc. |
-| **Renombrar carpeta local** | Opcional: `dietista-landingpage` → otro nombre en tu PC. |
+| **Checkout online** | Solo con alta y criterio fiscal claro. |
 
 ---
 
@@ -116,18 +126,19 @@ calEmbedHtml: `<div>...</div>`,
 | `index.html` | Contenido principal |
 | `legal/aviso-legal.html` | NIF, domicilio, URL web |
 | `deploy-github-pages.ps1` | Publicar en GitHub Pages |
-| `images/logo.png` | Logo sin texto “desarrollo web” (original en `logo-original.png`) |
+| `images/logo.png` | Logo (original en `logo-original.png`) |
 
 ---
 
-## Checklist rápido “¿puedo cobrar ya?”
+## Checklist “¿puedo empezar ya?”
 
-- [ ] Autónoma dada de alta (Hacienda + Seguridad Social)
-- [ ] NIF y domicilio en la web
-- [ ] Seguro RC (recomendado)
-- [ ] Cal.com con cobro o factura manual acordada
-- [ ] Quitar badge “Próximamente” de los planes en `index.html`
-- [ ] Actualizar aviso de la barra superior (ya no solo informativa)
+- [x] Consulta gratis visible y con CTA claro (WhatsApp hasta tener Cal.com)
+- [x] Copy sin bloquear por “falta alta de autónoma”
+- [x] Lista de interés con fallback mailto (sin Docker en producción)
+- [x] Cal.eu configurado ([cal.eu/carolinaromero](https://cal.eu/carolinaromero))
+- [ ] Tally (recomendado) en `questionnaireUrl`
+- [ ] NIF en legales cuando proceda
+- [ ] Alta de autónoma + quitar fricción de cobro cuando toque facturar
 
 ---
 
