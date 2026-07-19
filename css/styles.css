@@ -2258,3 +2258,92 @@ a {
   font-size: 0.9375rem;
   color: color-mix(in srgb, var(--charcoal) 65%, transparent);
 }
+
+.hero-trust {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  max-width: 36rem;
+}
+
+.hero-trust li {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--charcoal) 72%, transparent);
+}
+
+.hero-trust li::before {
+  content: "✓ ";
+  color: var(--rose);
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .hero-trust {
+    justify-content: flex-start;
+  }
+}
+
+.booking-prominent {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .booking-prominent {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.section-cta {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  background: color-mix(in srgb, var(--rose-light) 18%, white);
+  border: 1px solid color-mix(in srgb, var(--rose) 25%, transparent);
+}
+
+.section-cta p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.sticky-cta {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 85;
+  padding: 0.625rem 1rem;
+  padding-bottom: calc(0.625rem + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--cream) 94%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--charcoal) 10%, transparent);
+  box-shadow: 0 -4px 24px rgb(0 0 0 / 8%);
+  backdrop-filter: blur(8px);
+}
+
+.sticky-cta.is-hidden {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .sticky-cta:not(.is-hidden) {
+    display: block;
+  }
+
+  body.has-sticky-cta {
+    padding-bottom: 4.75rem;
+  }
+
+  .whatsapp-float {
+    bottom: 5.25rem;
+  }
+}

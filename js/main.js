@@ -417,12 +417,33 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+function initStickyCta() {
+  const bar = document.getElementById("sticky-cta");
+  const reserva = document.getElementById("reserva");
+  if (!bar || !reserva || !("IntersectionObserver" in window)) {
+    if (bar) document.body.classList.add("has-sticky-cta");
+    return;
+  }
+
+  document.body.classList.add("has-sticky-cta");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      bar.classList.toggle("is-hidden", entry.isIntersecting);
+    },
+    { root: null, threshold: 0.15 },
+  );
+
+  observer.observe(reserva);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initCalEmbed();
   initContactForm();
   initWaitlistForm();
   initNav();
   initWhatsappLinks();
+  initStickyCta();
   loadTestimonials();
   applyServiceParam();
   window.addEventListener("hashchange", applyServiceParam);
