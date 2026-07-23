@@ -36,7 +36,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=12" />
+    <link rel="stylesheet" href="css/styles.css?v=15" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -55,7 +55,7 @@
             },
             "areaServed": { "@type": "Country", "name": "España" },
             "sameAs": [
-              "https://www.linkedin.com/in/carolina-romero-c/"
+              "https://www.instagram.com/carolinar.dietista"
             ],
             "knowsAbout": ["Nutrición", "Dietética", "Educación alimentaria", "Hábitos saludables"]
           },
@@ -78,7 +78,8 @@
                 "@type": "Offer",
                 "name": "Cita única",
                 "price": "49",
-                "priceCurrency": "EUR"
+                "priceCurrency": "EUR",
+                "description": "Plan de 2 semanas: 2 opciones de menú, enfoque 360 y WhatsApp en horario laboral"
               },
               {
                 "@type": "Offer",
@@ -96,7 +97,7 @@
                 "name": "¿Puedo contratar un plan de pago ya?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Empieza por la consulta gratuita de 30 min por teléfono. En esa llamada valoramos si un plan de pago encaja contigo y cómo formalizarlo. También puedes dejar tu email en la lista de interés."
+                  "text": "Empieza por la consulta gratuita de 30 min por teléfono. Si encaja, puedes agendar la cita única o el plan trimestral por Cal.eu, WhatsApp o email."
                 }
               },
               {
@@ -109,10 +110,18 @@
               },
               {
                 "@type": "Question",
+                "name": "¿Qué incluye la cita única?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tras la consulta gratuita, eliges videollamada de 1 h o cuestionario completo con resumen por email. Incluye 2 opciones de menú durante 2 semanas, pautas de organización y compra, WhatsApp en horario laboral y enfoque 360 en alimentación, movimiento y descanso."
+                }
+              },
+              {
+                "@type": "Question",
                 "name": "¿Qué es BioEvolva?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "BioEvolva es una aplicación de menús y hábitos en fase beta. Se avisará cuando esté disponible."
+                  "text": "BioEvolva es una aplicación de menús y hábitos en fase beta. Aún no está abierta al público; se avisará desde esta web cuando esté disponible."
                 }
               }
             ]
@@ -132,8 +141,8 @@
         </a>
 
         <nav id="main-nav" class="nav" aria-label="Principal">
-          <a href="#reserva">Reservar</a>
           <a href="#planes">Planes</a>
+          <a href="#que-incluye">Servicio</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#faq">FAQ</a>
           <a href="#contacto">Contacto</a>
@@ -141,6 +150,7 @@
         </nav>
 
         <div class="header-controls">
+          <a href="#contacto" class="btn btn-outline header-contact">Contacto</a>
           <a href="#reserva" class="btn btn-primary header-cta">Consulta gratis</a>
           <button
             type="button"
@@ -161,8 +171,8 @@
       <div class="site-notice" role="status">
         <div class="container site-notice-inner">
           <p>
-            <strong>Consulta gratuita de 30 min — plazas limitadas cada mes.</strong>
-            Reserva tu hueco abajo. Sin compromiso: valoramos juntas si encaja un plan de pago.
+            <strong>Consulta gratuita de 30 min por teléfono.</strong>
+            Primero conoce el servicio; después reserva tu hueco sin compromiso.
           </p>
         </div>
       </div>
@@ -171,126 +181,95 @@
         <div class="container hero-grid">
           <div class="hero-content">
             <p class="eyebrow hero-eyebrow">Teruel · Online en toda España</p>
-            <h1>Menús personalizados <span>sin dietas extremas</span></h1>
+            <h1>Mejora tus hábitos <span>sin dietas extremas</span></h1>
             <p class="hero-lead">
-              Soy <strong>Carolina Romero</strong>, Técnica Superior en Dietética.
-              Te preparo menús semanales realistas, seguimiento y apoyo para mejorar
-              tus hábitos — con un plan que encaja en tu día a día.
+              Menús realistas, seguimiento cercano y un plan <strong>360</strong> en alimentación,
+              movimiento y descanso — para que aprendas a cuidarte sin depender de nadie a largo plazo.
             </p>
 
             <ul class="hero-badges" aria-label="Beneficios principales">
-              <li>Menús semanales personalizados</li>
-              <li>Seguimiento y adaptación</li>
-              <li>Grupo WhatsApp opcional (trimestral)</li>
+              <li>Plan 360 personalizado</li>
+              <li>WhatsApp en horario laboral</li>
+              <li>Consulta gratis de 30 min</li>
             </ul>
 
             <div class="hero-actions">
-              <a href="#reserva" class="btn btn-rose btn-hero">Reservar consulta gratis</a>
-              <a href="#planes" class="btn btn-outline btn-hero">Ver planes y precios</a>
+              <a href="#planes" class="btn btn-rose btn-hero">Ver planes y precios</a>
+              <a href="#reserva" class="btn btn-outline btn-hero">Consulta gratis</a>
             </div>
 
             <ul class="hero-trust" aria-label="Garantías de la consulta">
               <li>30 min por teléfono</li>
               <li>Sin compromiso</li>
-              <li>Desde 15 €/semana (plan trimestral)</li>
+              <li>Cita única desde 49 €</li>
             </ul>
-
-            <p class="hero-disclaimer">
-              Asesoría en alimentación para personas sanas. No sustituye diagnóstico
-              ni tratamiento médico.
-            </p>
           </div>
 
           <div class="hero-visual">
-            <div class="logo-showcase">
-              <div class="logo-card">
-                <img src="images/logo.png" alt="Carolina Romero — asesoría en dietética online" />
-                <p class="logo-tagline">Asesoría en dietética online</p>
-                <p class="motto-badge">Hábitos. Constancia. Resultados.</p>
-              </div>
+            <div class="photo-placeholder hero-photo-placeholder" role="img" aria-label="Foto profesional próximamente">
+              <span class="photo-placeholder-label">Foto profesional</span>
+              <span class="photo-placeholder-sub">Próximamente</span>
             </div>
           </div>
         </div>
+        <p class="hero-disclaimer container">
+          Asesoría en alimentación para personas sanas. No sustituye diagnóstico ni tratamiento médico.
+        </p>
       </section>
 
-      <section id="reserva" class="booking booking-prominent">
-        <div class="container">
-          <div class="section-intro section-intro-light">
-            <p class="eyebrow">Reserva ahora</p>
-            <h2>Consulta informativa gratuita</h2>
-            <p>
-              Elige tu hora, responde unas preguntas al confirmar y listo.
-              Llamada telefónica de <strong>30 minutos</strong>.
-              Horario: <strong>9:00–13:00</strong> y <strong>15:00–19:00</strong>
-              (peninsular), de lunes a viernes.
-            </p>
-          </div>
-
-          <div class="booking-panel">
-            <div id="cal-embed" class="cal-placeholder" aria-live="polite">
-              <p class="cal-placeholder-title">Cargando calendario…</p>
-              <p>
-                Si tarda, abre
-                <a href="https://cal.eu/carolinaromero" target="_blank" rel="noopener noreferrer">cal.eu/carolinaromero</a>
-                o reserva por
-                <a href="https://wa.me/34695504249" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>.
-              </p>
-            </div>
-            <p class="cal-embed-fallback">
-              ¿Prefieres otro canal?
-              <a href="https://cal.eu/carolinaromero" target="_blank" rel="noopener noreferrer">Abrir Cal.eu</a>
-              ·
-              <a href="https://wa.me/34695504249" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
-              ·
-              <a href="mailto:carolinaromero.dietista@proton.me">Email</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="como-funciona" class="como-funciona">
+      <section id="que-incluye" class="beneficios">
         <div class="container">
           <div class="section-intro">
-            <p class="eyebrow">Cómo funciona</p>
-            <h2>Tres pasos para empezar</h2>
+            <p class="eyebrow">Qué incluye</p>
+            <h2>Tu plan va más allá del menú</h2>
+            <p>
+              Asesoría en alimentación para personas sanas, con un enfoque integral,
+              práctico y orientado a tu autonomía.
+            </p>
           </div>
-          <ol class="steps-list">
-            <li class="step-card">
-              <span class="step-num" aria-hidden="true">1</span>
-              <h3>Reserva tu consulta gratis</h3>
-              <p>
-                Elige hueco en el calendario, responde unas preguntas breves
-                y confirma. Llamada telefónica de 30 min, sin compromiso.
-              </p>
-            </li>
-            <li class="step-card">
-              <span class="step-num" aria-hidden="true">2</span>
-              <h3>Tu plan personalizado</h3>
-              <p>
-                Menús semanales, pautas claras y educación alimentaria adaptada
-                a tu vida real.
-              </p>
-            </li>
-            <li class="step-card">
-              <span class="step-num" aria-hidden="true">3</span>
-              <h3>Seguimiento y grupo</h3>
-              <p>
-                Revisiones, ajustes según progreso y, si lo deseas en el trimestral,
-                acceso voluntario al grupo WhatsApp de apoyo.
-              </p>
-            </li>
-          </ol>
-
-          <div class="consulta-gratis-box">
-            <h3>Qué incluye la consulta gratuita de 30 min</h3>
-            <ul>
-              <li>Llamada telefónica de 30 minutos</li>
-              <li>Conocernos y entender tu objetivo y contexto</li>
-              <li>Explicarte cómo trabajo (menús, seguimiento, grupo opcional)</li>
-              <li>Resolver dudas sobre planes y precios</li>
-              <li>Valorar si encajamos — <strong>sin presión ni venta agresiva</strong></li>
-            </ul>
-            <a href="#reserva" class="btn btn-rose">Reservar consulta gratis</a>
+          <div class="beneficios-grid">
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+              </span>
+              <h3>Plan 360</h3>
+              <p>Alimentación, movimiento y descanso. No solo qué comer, sino cómo sostener el cambio.</p>
+            </article>
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+              </span>
+              <h3>Menús personalizados</h3>
+              <p>Opciones realistas adaptadas a tu rutina, con pautas de compra y organización.</p>
+            </article>
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.4 8.4 0 01-.9 3.8 8 8 0 01-7.6 4.7 8 8 0 01-4.7-7.6 8.4 8.4 0 013.8-.9h.5a5 5 0 004.4-2.6 5 5 0 00-1.5-5.9A5 5 0 0012 3v8.5"/></svg>
+              </span>
+              <h3>WhatsApp en horario laboral</h3>
+              <p>Dudas, motivación y seguimiento de adherencia durante tu plan.</p>
+            </article>
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M5 19l1 3 1-3 3-1-3-1-1-3-1 3-3 1 3 1z"/></svg>
+              </span>
+              <h3>Autonomía, no dependencia</h3>
+              <p>El objetivo es que aprendas a elegir mejor y mantengas tu salud en el tiempo.</p>
+            </article>
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.5 2.6a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.5-1.5a2 2 0 012.1-.5c.8.2 1.7.4 2.6.5A2 2 0 0122 16.9z"/></svg>
+              </span>
+              <h3>Consulta gratis</h3>
+              <p>30 min por teléfono para valorar tu objetivo y si encaja trabajar juntas.</p>
+            </article>
+            <article class="beneficio-card">
+              <span class="beneficio-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </span>
+              <h3>Grupo opcional</h3>
+              <p>En el plan trimestral, comunidad voluntaria de apoyo (máx. 10 personas).</p>
+            </article>
           </div>
         </div>
       </section>
@@ -299,7 +278,7 @@
         <div class="container">
           <div class="section-intro">
             <p class="eyebrow">Para quién es</p>
-            <h2>Si te reconoces en alguno de estos perfiles</h2>
+            <h2>¿Es para ti?</h2>
             <p>Trabajo con personas sanas que buscan mejorar su relación con la comida.</p>
           </div>
           <div class="para-quien-grid">
@@ -334,7 +313,7 @@
             <li>Menores de edad sin supervisión de padre, madre o tutor</li>
           </ul>
           <p class="exclusion-note">
-            Si tienes dudas sobre tu caso, reserva la consulta gratuita y lo valoramos juntas.
+            Si tienes dudas sobre tu caso, reserva la consulta gratuita y lo valoramos.
             Ante cualquier patología, tu médico es la referencia.
           </p>
         </div>
@@ -344,9 +323,9 @@
         <div class="container">
           <div class="section-header">
             <p class="eyebrow">Planes y precios</p>
-            <h2>Elige cómo quieres trabajar conmigo</h2>
+            <h2>Elige cómo quieres trabajar tu salud</h2>
             <p class="services-promo">
-              Consulta informativa gratuita: 30 min por teléfono · Sesiones de pago: 1 h
+              Consulta informativa gratuita: 30 min por teléfono · Planes de pago bajo propuesta escrita
             </p>
           </div>
 
@@ -355,14 +334,15 @@
               <p class="pricing-label">Puntual</p>
               <h3>Cita única</h3>
               <p class="pricing-amount">49 €</p>
-              <p class="pricing-period">1 sesión · 1 hora</p>
+              <p class="pricing-period">Plan de 2 semanas</p>
               <ul class="pricing-features">
-                <li>Videollamada y valoración de tus hábitos</li>
-                <li>1 menú semanal personalizado</li>
-                <li>Pautas de compra y organización</li>
-                <li>Resumen por email</li>
+                <li>Tras la consulta gratis: <strong>1 h videollamada</strong> o <strong>cuestionario + resumen por email</strong></li>
+                <li><strong>2 opciones de menú</strong> personalizadas</li>
+                <li>Pautas de organización y compra</li>
+                <li><strong>WhatsApp</strong> en horario laboral (dudas, motivación, adherencia)</li>
+                <li>Enfoque <strong>360</strong>: alimentación, movimiento y descanso</li>
               </ul>
-              <p class="pricing-note">Sin seguimiento posterior</p>
+              <p class="pricing-note">Si encaja, reserva tu cita cuando quieras por Cal.eu, WhatsApp o email.</p>
               <a href="#reserva" class="btn btn-rose btn-full">Empezar con consulta gratis</a>
             </article>
 
@@ -374,7 +354,7 @@
               <p class="pricing-week">≈ 15 €/semana de acompañamiento</p>
               <ul class="pricing-features">
                 <li>Consulta inicial de 1 hora</li>
-                <li>12 menús semanales adaptados</li>
+                <li>12 menús adaptados</li>
                 <li>5 revisiones quincenales (~30 min)</li>
                 <li>Ajustes según tu progreso</li>
                 <li>Soporte WhatsApp en horario laboral</li>
@@ -400,19 +380,29 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">Duración sesión de pago</th>
-                  <td>1 h</td>
-                  <td>1 h inicial + revisiones</td>
+                  <th scope="row">Duración del plan</th>
+                  <td>2 semanas</td>
+                  <td>12 semanas</td>
                 </tr>
                 <tr>
-                  <th scope="row">Menús semanales</th>
-                  <td>1</td>
+                  <th scope="row">Opciones de menú</th>
+                  <td>2</td>
                   <td>12</td>
                 </tr>
                 <tr>
-                  <th scope="row">Seguimiento</th>
-                  <td>No</td>
-                  <td>Sí, quincenal</td>
+                  <th scope="row">Enfoque 360</th>
+                  <td>Sí</td>
+                  <td>Sí</td>
+                </tr>
+                <tr>
+                  <th scope="row">WhatsApp (horario laboral)</th>
+                  <td>Sí (2 sem)</td>
+                  <td>Sí</td>
+                </tr>
+                <tr>
+                  <th scope="row">Revisiones</th>
+                  <td>—</td>
+                  <td>Quincenales (~30 min)</td>
                 </tr>
                 <tr>
                   <th scope="row">Grupo WhatsApp</th>
@@ -427,46 +417,302 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
 
-          <div id="lista-espera" class="waitlist-box">
-            <h3>Lista de interés — conserva el precio actual</h3>
-            <p>
-              Si ya tienes claro el plan, déjame tu email y te escribo para
-              concretar plazas y formalización. Lo ideal: primero la
-              <a href="#reserva">consulta gratuita</a>.
+      <section id="sobre-mi" class="about">
+        <div class="container about-grid about-grid-story">
+          <div class="about-photo-wrap">
+            <div class="photo-placeholder about-photo-placeholder" role="img" aria-label="Foto profesional próximamente">
+              <span class="photo-placeholder-label">Foto profesional</span>
+              <span class="photo-placeholder-sub">Próximamente</span>
+            </div>
+          </div>
+          <div class="about-main">
+            <p class="eyebrow">Sobre mí</p>
+            <h2>Carolina Romero</h2>
+            <p class="about-credential">
+              <strong>Técnica Superior en Dietética (CFGS)</strong> — titulación oficial.
+              Certificado provisional en vigor mientras se expide el título definitivo.
             </p>
-            <form id="waitlist-form" class="waitlist-form" novalidate>
+            <p class="about-text">
+              Hace más de diez años hice un cambio físico sin formación en nutrición. Lo pasé mal:
+              no entendía por qué pasaban ciertas cosas aunque me esforzara, leyera mucho y aplicara
+              todo al pie de la letra. Fue frustrante, pero lo conseguí.
+            </p>
+            <p class="about-text">
+              Entonces decidí estudiar Dietética para ayudar a otras personas a que su camino fuera
+              más llevadero y pudieran alcanzar sus objetivos <strong>sin ese drama</strong>.
+            </p>
+            <p class="about-text">
+              Hoy me encuentro de nuevo en ese camino, con más calma, más experiencia y la suerte de
+              haber acompañado a otras personas a lograrlo — eso me motiva a seguir.
+            </p>
+            <p class="about-text">
+              Si decides que trabajemos juntas en tu salud, haré lo posible para que tu proceso sea
+              lo más sencillo posible, dentro de la dificultad que implica cambiar hábitos y cuidar
+              la salud como se merece.
+            </p>
+            <div class="about-enfoque">
+              <h3>Mi enfoque</h3>
+              <p>
+                No busco ser tu dietista de por vida. Quiero que aprendas sobre nutrición lo
+                suficiente como para elegir mejores opciones y tomar decisiones más conscientes
+                con tu salud.
+              </p>
+            </div>
+            <p class="about-text about-note">
+              No soy dietista-nutricionista colegiada. Trabajo con personas sanas
+              en educación alimentaria y hábitos. Ante patologías, consulta siempre
+              con tu médico.
+            </p>
+            <div class="about-links">
+              <a
+                href="https://www.instagram.com/carolinar.dietista"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline about-social-btn"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <div class="container">
+          <div class="section-header faq-header">
+            <p class="eyebrow">Preguntas frecuentes</p>
+            <h2>Resolvemos tus dudas</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>¿Qué incluye la cita única de 49 €?</summary>
+              <p>
+                Tras la consulta gratuita, eliges <strong>1 h de videollamada</strong> o
+                <strong>cuestionario completo + resumen por email</strong>. Recibes
+                <strong>2 opciones de menú</strong> durante 2 semanas, pautas de organización
+                y compra, <strong>WhatsApp en horario laboral</strong> y un enfoque
+                <strong>360</strong> (alimentación, movimiento y descanso).
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Puedo contratar un plan de pago ya?</summary>
+              <p>
+                Empieza por la <strong>consulta gratuita de 30 min por teléfono</strong>.
+                Ahí valoramos si la cita única (49 €) o el plan trimestral (179 €)
+                encajan contigo. Si te sientes cómoda, agenda la cita única cuando quieras
+                por Cal.eu, WhatsApp o email.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cuánto dura cada tipo de sesión?</summary>
+              <p>
+                Consulta informativa gratuita: <strong>30 min por teléfono</strong>.
+                Sesiones de pago: <strong>1 hora</strong> (videollamada). Revisiones del plan trimestral: ~30 min.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cómo funcionan los grupos de WhatsApp?</summary>
+              <p>
+                Solo para clientas del plan trimestral y de forma <strong>voluntaria</strong>:
+                no estás obligada a unirte por contratar el plan. Máximo 10 personas con
+                objetivo similar. Compartís recetas, os apoyáis y yo corrijo platos
+                y comparto información nutricional. No es un chat médico 24/7.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Qué es BioEvolva?</summary>
+              <p>
+                BioEvolva es una aplicación de menús y hábitos que estoy desarrollando.
+                Ahora mismo está en <strong>fase beta</strong> y no está abierta al público.
+                Cuando esté disponible, se avisará desde esta web y por email/WhatsApp
+                a quien lo pida.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Cuál es la política de cancelación?</summary>
+              <p>
+                Para la <strong>consulta gratuita</strong>, puedes cancelar o cambiar la cita
+                con al menos 24 h de antelación por email o WhatsApp. Para sesiones de pago
+                (cuando estén activas), las condiciones concretas de cancelación y reprogramación
+                se indicarán por escrito antes de contratar.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Atiendes solo en Teruel?</summary>
+              <p>
+                Vivo en Teruel pero trabajo <strong>100 % online</strong> con
+                clientas de toda España: la consulta gratuita es por
+                <strong>teléfono</strong>; las sesiones de pago por videollamada,
+                email y WhatsApp.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>¿Sustituye la asesoría a un médico?</summary>
+              <p>
+                No. Ofrezco asesoría en alimentación para personas sanas.
+                <strong>No sustituye</strong> diagnóstico ni tratamiento médico.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="reserva" class="booking booking-prominent">
+        <div class="container">
+          <div class="section-intro section-intro-light">
+            <p class="eyebrow">Reserva</p>
+            <h2>Consulta informativa gratuita</h2>
+            <p>
+              Elige tu hora, responde unas preguntas al confirmar y listo.
+              Llamada telefónica de <strong>30 minutos</strong>, sin compromiso.
+              Horario: <strong>9:00–13:00</strong> y <strong>15:00–19:00</strong>
+              (peninsular), de lunes a viernes.
+            </p>
+          </div>
+
+          <div class="consulta-gratis-box consulta-gratis-box-inline">
+            <h3>Qué hablamos en la consulta gratis</h3>
+            <ul>
+              <li>Tu objetivo y si has hecho dietas anteriores</li>
+              <li>Tu mayor obstáculo: estrés, picoteo, falta de tiempo para cocinar, ejercicio o descanso</li>
+              <li>Tus horarios, actividad física y molestias o patologías no controladas</li>
+              <li>Cómo trabajo y qué plan encaja contigo — <strong>sin presión</strong></li>
+            </ul>
+            <p>
+              Si te sientes cómoda, puedes agendar la <strong>cita única</strong> cuando quieras
+              por <a href="https://cal.eu/carolinaromero" target="_blank" rel="noopener noreferrer">Cal.eu</a>,
+              <a href="https://wa.me/34695504249" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              o <a href="mailto:carolinaromero.dietista@proton.me">email</a>.
+            </p>
+          </div>
+
+          <div class="booking-panel">
+            <div id="cal-embed" class="cal-placeholder" aria-live="polite">
+              <p class="cal-placeholder-title">Cargando calendario…</p>
+              <p>
+                Si tarda, abre
+                <a href="https://cal.eu/carolinaromero" target="_blank" rel="noopener noreferrer">cal.eu/carolinaromero</a>
+                o reserva por
+                <a href="https://wa.me/34695504249" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>.
+              </p>
+            </div>
+            <p class="cal-embed-fallback">
+              ¿Prefieres otro canal?
+              <a href="https://cal.eu/carolinaromero" target="_blank" rel="noopener noreferrer">Abrir Cal.eu</a>
+              ·
+              <a href="https://wa.me/34695504249" data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              ·
+              <a href="mailto:carolinaromero.dietista@proton.me">Email</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="contact">
+        <div class="container contact-grid">
+          <div>
+            <p class="eyebrow">Contacto</p>
+            <h2>¿Tienes dudas?</h2>
+            <p class="contact-intro">
+              Escríbeme por email, WhatsApp o el formulario. Respondo en menos de 24 horas laborables.
+              Para reservar la consulta gratis, usa el <a href="#reserva">calendario</a>.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:carolinaromero.dietista@proton.me" class="contact-link">
+                <span class="contact-link-icon email">@</span>
+                <div>
+                  <p class="contact-link-label">Email</p>
+                  <p class="contact-link-value">carolinaromero.dietista@proton.me</p>
+                </div>
+              </a>
+              <a
+                href="https://wa.me/34695504249"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+              >
+                <span class="contact-link-icon whatsapp">WA</span>
+                <div>
+                  <p class="contact-link-label">WhatsApp</p>
+                  <p class="contact-link-value">+34 695 504 249</p>
+                </div>
+              </a>
+              <a
+                href="https://www.instagram.com/carolinar.dietista"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+              >
+                <span class="contact-link-icon instagram" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </span>
+                <div>
+                  <p class="contact-link-label">Instagram</p>
+                  <p class="contact-link-value">@carolinar.dietista</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <form id="contact-form" class="contact-form" novalidate>
               <div class="visually-hidden" aria-hidden="true">
-                <label for="waitlist-website">Web</label>
-                <input id="waitlist-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                <label for="contact-website">Web</label>
+                <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="form-group">
+                <label for="name">Nombre completo *</label>
+                <input id="name" name="name" type="text" required autocomplete="name" />
               </div>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="waitlist-email">Email *</label>
-                  <input id="waitlist-email" name="email" type="email" required autocomplete="email" />
+                  <label for="email">Email *</label>
+                  <input id="email" name="email" type="email" required autocomplete="email" />
                 </div>
                 <div class="form-group">
-                  <label for="waitlist-plan">Plan de interés *</label>
-                  <select id="waitlist-plan" name="plan" required>
-                    <option value="trimestral">Plan trimestral (179 €)</option>
-                    <option value="cita-unica">Cita única (49 €)</option>
-                  </select>
+                  <label for="phone">Teléfono</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
                 </div>
               </div>
+              <div class="form-group">
+                <label for="service">Interés *</label>
+                <select id="service" name="service" required>
+                  <option value="consulta-gratis">Consulta gratuita (30 min)</option>
+                  <option value="cita-unica">Cita única (49 €)</option>
+                  <option value="trimestral">Plan trimestral (179 €)</option>
+                  <option value="otro">Otra consulta</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Mensaje *</label>
+                <textarea id="message" name="message" required rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+              <p id="contact-form-error" class="form-error" hidden role="alert"></p>
               <label class="form-checkbox">
                 <input type="checkbox" name="privacy" required />
                 <span>
-                  Acepto la
+                  He leído y acepto la
                   <a href="legal/privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.
                 </span>
               </label>
-              <button type="submit" class="btn btn-primary">Quiero que me contactéis</button>
-              <p id="waitlist-form-error" class="form-error" hidden role="alert"></p>
             </form>
-            <div id="waitlist-success" class="form-success" role="status" aria-live="polite">
+            <div id="form-success" class="form-success" role="status" aria-live="polite">
               <div class="form-success-icon" aria-hidden="true">✓</div>
-              <h3>¡Recibido!</h3>
-              <p>Te escribiré pronto para concretar. Mientras, puedes reservar la consulta gratis.</p>
+              <h3>Mensaje enviado</h3>
+              <p>
+                Gracias por escribirme. Te responderé en menos de 24 h laborables.
+                Si no recibes respuesta, escribe a
+                <a href="mailto:carolinaromero.dietista@proton.me">carolinaromero.dietista@proton.me</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -530,75 +776,6 @@
         </div>
       </section>
 
-      <section id="sobre-mi" class="about">
-        <div class="container about-grid">
-          <div class="about-main">
-            <p class="eyebrow">Sobre mí</p>
-            <h2>Carolina Romero</h2>
-            <p class="about-credential">
-              <strong>Técnica Superior en Dietética (CFGS)</strong> — titulación oficial.
-              Certificado provisional en vigor mientras se expide el título definitivo.
-            </p>
-            <p class="about-text">
-              Desde Teruel (Aragón) atiendo online a toda España. Mi enfoque es práctico:
-              menús que encajan en tu día a día, educación nutricional sin
-              restricciones extremas y acompañamiento cercano.
-            </p>
-            <p class="about-text about-note">
-              No soy dietista-nutricionista colegiada. Trabajo con personas sanas
-              en educación alimentaria y hábitos. Ante patologías, consulta siempre
-              con tu médico.
-            </p>
-            <div class="about-links">
-              <a
-                href="https://www.linkedin.com/in/carolina-romero-c/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-outline"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-          <div class="credentials-grid">
-            <div class="credential-card">
-              <h3>Menús realistas</h3>
-              <p>Planes flexibles con alternativas, no dietas imposibles de mantener.</p>
-            </div>
-            <div class="credential-card">
-              <h3>Seguimiento real</h3>
-              <p>Ajustes según tu adherencia, progreso y feedback.</p>
-            </div>
-            <div class="credential-card">
-              <h3>Educación</h3>
-              <p>Aprendes a comer mejor, no solo a seguir una lista.</p>
-            </div>
-            <div class="credential-card">
-              <h3>Comunidad</h3>
-              <p>Grupo WhatsApp opcional y pequeño para apoyarte entre compañeras.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="opiniones" class="testimonials" hidden>
-        <div class="container">
-          <div class="section-intro">
-            <p class="eyebrow">Opiniones</p>
-            <h2>Lo que dicen quienes han participado</h2>
-            <p>
-              Testimonios de grupos de hábitos y asesorías. Publicados con
-              consentimiento expreso.
-            </p>
-          </div>
-          <div id="testimonials-grid" class="testimonials-grid" aria-live="polite"></div>
-          <p id="testimonials-empty" class="testimonials-empty">
-            Próximamente más opiniones aquí. Si participaste en un grupo y quieres
-            compartir tu experiencia, escríbeme.
-          </p>
-        </div>
-      </section>
-
       <section id="casos-tipo" class="testimonials casos-tipo">
         <div class="container">
           <div class="section-intro">
@@ -619,8 +796,8 @@
             </article>
             <article class="testimonial-card">
               <p class="testimonial-text">
-                «Quería organizarme mejor sin dietas raras. La cita única me dio un menú
-                claro y pautas que sigo meses después.»
+                «Quería organizarme mejor sin dietas raras. Con la cita única tuve dos menús,
+                tips de compra y apoyo por WhatsApp durante dos semanas.»
               </p>
               <footer>
                 <cite class="testimonial-author">Elena, 41 años</cite>
@@ -635,160 +812,21 @@
         </div>
       </section>
 
-      <section id="faq" class="faq">
+      <section id="opiniones" class="testimonials" hidden>
         <div class="container">
-          <div class="section-header faq-header">
-            <p class="eyebrow">Preguntas frecuentes</p>
-            <h2>Resolvemos tus dudas</h2>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>¿Puedo contratar un plan de pago ya?</summary>
-              <p>
-                Empieza por la <strong>consulta gratuita de 30 min por teléfono</strong>.
-                Ahí valoramos si la cita única (49 €) o el plan trimestral (179 €)
-                encajan contigo y cómo formalizarlo. También puedes dejar tu email
-                en la lista de interés.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Cuánto dura cada tipo de sesión?</summary>
-              <p>
-                Consulta informativa gratuita: <strong>30 min por teléfono</strong>.
-                Sesiones de pago: <strong>1 hora</strong> (videollamada). Revisiones del plan trimestral: ~30 min.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Cómo funcionan los grupos de WhatsApp?</summary>
-              <p>
-                Solo para clientas del plan trimestral y de forma <strong>voluntaria</strong>:
-                no estás obligada a unirte por contratar el plan. Máximo 10 personas con
-                objetivo similar. Compartís recetas, os apoyáis y yo corrijo platos
-                y comparto información nutricional. No es un chat médico 24/7.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Qué es BioEvolva?</summary>
-              <p>
-                BioEvolva es una aplicación de menús y hábitos que estoy desarrollando.
-                Ahora mismo está en <strong>fase beta</strong> y no está abierta al público.
-                Cuando esté disponible, se avisará desde esta web y por email/WhatsApp
-                a quien lo pida.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Cuál es la política de cancelación?</summary>
-              <p>
-                Para la <strong>consulta gratuita</strong>, puedes cancelar o cambiar la cita
-                con al menos 24 h de antelación por email o WhatsApp. Para sesiones de pago
-                (cuando estén activas), las condiciones concretas de cancelación y reprogramación
-                se indicarán por escrito antes de contratar.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Atiendes solo en Teruel?</summary>
-              <p>
-                Vivo en Teruel pero trabajo <strong>100 % online</strong> con
-                clientas de toda España: la consulta gratuita es por
-                <strong>teléfono</strong>; las sesiones de pago por videollamada,
-                email y WhatsApp.
-              </p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Sustituye la asesoría a un médico?</summary>
-              <p>
-                No. Ofrezco asesoría en alimentación para personas sanas.
-                <strong>No sustituye</strong> diagnóstico ni tratamiento médico.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacto" class="contact">
-        <div class="container contact-grid">
-          <div>
-            <p class="eyebrow">Contacto</p>
-            <h2>¿Alguna duda?</h2>
-            <p class="contact-intro">
-              Escríbeme y te responderé en menos de 24 horas laborables.
+          <div class="section-intro">
+            <p class="eyebrow">Opiniones</p>
+            <h2>Lo que dicen quienes han participado</h2>
+            <p>
+              Testimonios de grupos de hábitos y asesorías. Publicados con
+              consentimiento expreso.
             </p>
-            <div class="contact-links">
-              <a href="mailto:carolinaromero.dietista@proton.me" class="contact-link">
-                <span class="contact-link-icon email">@</span>
-                <div>
-                  <p class="contact-link-label">Email</p>
-                  <p class="contact-link-value">carolinaromero.dietista@proton.me</p>
-                </div>
-              </a>
-              <a
-                href="https://wa.me/34695504249"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-link"
-              >
-                <span class="contact-link-icon whatsapp">WA</span>
-                <div>
-                  <p class="contact-link-label">WhatsApp</p>
-                  <p class="contact-link-value">+34 695 504 249</p>
-                </div>
-              </a>
-            </div>
           </div>
-
-          <div class="contact-form-wrap">
-            <form id="contact-form" class="contact-form" novalidate>
-              <div class="visually-hidden" aria-hidden="true">
-                <label for="contact-website">Web</label>
-                <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
-              </div>
-              <div class="form-group">
-                <label for="name">Nombre completo *</label>
-                <input id="name" name="name" type="text" required autocomplete="name" />
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="email">Email *</label>
-                  <input id="email" name="email" type="email" required autocomplete="email" />
-                </div>
-                <div class="form-group">
-                  <label for="phone">Teléfono</label>
-                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="service">Interés *</label>
-                <select id="service" name="service" required>
-                  <option value="consulta-gratis">Consulta gratuita (30 min)</option>
-                  <option value="cita-unica">Cita única (49 €)</option>
-                  <option value="trimestral">Plan trimestral (179 €)</option>
-                  <option value="otro">Otra consulta</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="message">Mensaje *</label>
-                <textarea id="message" name="message" required rows="4"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
-              <p id="contact-form-error" class="form-error" hidden role="alert"></p>
-              <label class="form-checkbox">
-                <input type="checkbox" name="privacy" required />
-                <span>
-                  He leído y acepto la
-                  <a href="legal/privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.
-                </span>
-              </label>
-            </form>
-            <div id="form-success" class="form-success" role="status" aria-live="polite">
-              <div class="form-success-icon" aria-hidden="true">✓</div>
-              <h3>Mensaje enviado</h3>
-              <p>
-                Gracias por escribirme. Te responderé en menos de 24 h laborables.
-                Si no recibes respuesta, escribe a
-                <a href="mailto:carolinaromero.dietista@proton.me">carolinaromero.dietista@proton.me</a>.
-              </p>
-            </div>
-          </div>
+          <div id="testimonials-grid" class="testimonials-grid" aria-live="polite"></div>
+          <p id="testimonials-empty" class="testimonials-empty">
+            Próximamente más opiniones aquí. Si participaste en un grupo y quieres
+            compartir tu experiencia, escríbeme.
+          </p>
         </div>
       </section>
     </main>
@@ -825,7 +863,12 @@
         <div class="footer-bottom">
           <p>© <span id="year"></span> Carolina Romero. Todos los derechos reservados.</p>
           <div class="footer-links footer-legal">
-            <a href="https://www.linkedin.com/in/carolina-romero-c/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.instagram.com/carolinar.dietista" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              Instagram
+            </a>
             <a href="legal/aviso-legal.html">Aviso legal</a>
             <a href="legal/privacidad.html">Privacidad</a>
             <a href="legal/cookies.html">Cookies</a>
